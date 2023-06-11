@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: rgba(57, 119, 97, 0.76);" styleClass="authors" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.castle.zamek_conwy.MenuManager">
+   <stylesheets>
+      <URL value="@../../../assets/css/backgrounds.css" />
+   </stylesheets>
+   <children>
+      <Button alignment="CENTER" layoutX="551.0" layoutY="655.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="37.0" prefWidth="178.0" style="-fx-background-color: rgb(228, 186, 160);" text="Powrót" textAlignment="CENTER">
+         <font>
+            <Font size="19.0" />
+         </font></Button>
+      <Text fill="WHITE" layoutX="543.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rafał Owczarek">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="563.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jakub Góra" wrappingWidth="163.568359375">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="542.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Michał Pryczek" wrappingWidth="196.5087890625">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="534.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Miłosz Malewicz">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="518.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autorzy" wrappingWidth="256.45751953125">
+         <font>
+            <Font size="75.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" scaleShape="false" style="-fx-background-color: rgb(44,44,44);" styleClass="background" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.castle.zamek_conwy.Board">
+   <stylesheets>
+      <URL value="@../../../assets/css/backgrounds.css" />
+   </stylesheets>
+   <center>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="800.0" styleClass="board" BorderPane.alignment="CENTER">
+         <children>
+            <Pane fx:id="visualTurnIndicator" layoutX="-5.0" layoutY="56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="810.0" style="-fx-background-color: Yellow;" />
+            <ImageView fitHeight="639.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/board/BoardBack.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="639.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/board/BoardFields.png" />
+               </image>
+            </ImageView>
+            <ImageView disable="true" fitHeight="639.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/board/BoardCenter.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="PawnChar1" fitHeight="40.0" fitWidth="40.0" layoutX="385.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/characters/char1/char1yellow.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="PawnChar2" fitHeight="40.0" fitWidth="40.0" layoutX="722.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/characters/char2/char2green.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="PawnChar3" fitHeight="40.0" fitWidth="40.0" layoutX="385.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/characters/char3/char3blue.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="PawnChar4" fitHeight="40.0" fitWidth="40.0" layoutX="37.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/characters/char4/char4red.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="100.0" fitWidth="383.0" layoutX="217.0" layoutY="614.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/board/Inventory.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="InventoryWeapon" fitHeight="46.0" fitWidth="46.0" layoutX="242.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/items/weapon2.png" />
+               </image></ImageView>
+            <ImageView fx:id="InventoryArmor1" fitHeight="46.0" fitWidth="46.0" layoutX="305.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/items/armor1.png" />
+               </image></ImageView>
+            <ImageView fx:id="InventoryArmor2" fitHeight="46.0" fitWidth="46.0" layoutX="359.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/items/armor2.png" />
+               </image></ImageView>
+            <ImageView fx:id="InventoryArmor3" fitHeight="46.0" fitWidth="46.0" layoutX="412.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/items/armor3.png" />
+               </image></ImageView>
+            <ImageView fx:id="InventoryArmor4" fitHeight="46.0" fitWidth="46.0" layoutX="467.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/items/armor4.png" />
+               </image></ImageView>
+            <Text fx:id="InventoryTrophies" fill="#31bceb" layoutX="541.0" layoutY="678.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="35.13671875">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Text>
+            <AnchorPane layoutY="60.0" prefHeight="537.0" prefWidth="800.0">
+               <children>
+                  <Button fx:id="Field0" layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field1" layoutX="115.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field2" layoutX="229.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field3" layoutX="343.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field4" layoutX="457.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field5" layoutX="571.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field6" layoutX="685.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field7" layoutX="685.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field8" layoutX="685.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field9" layoutX="685.0" layoutY="231.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field10" layoutX="685.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field11" layoutX="685.0" layoutY="385.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field12" layoutX="685.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field13" layoutX="571.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field14" layoutX="457.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field15" layoutX="343.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field16" layoutX="229.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field17" layoutX="115.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field18" layoutX="1.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field19" layoutX="1.0" layoutY="385.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field20" layoutX="1.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field21" layoutX="1.0" layoutY="231.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field22" layoutX="1.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+                  <Button fx:id="Field23" layoutX="1.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="76.0" prefWidth="114.0" style="-fx-background-color: purple;" />
+               </children>
+            </AnchorPane>
+            <ImageView disable="true" fitHeight="639.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/board/BoardFixed.png" />
+               </image>
+            </ImageView>
+            <Pane fx:id="shopBackground" disable="true" layoutX="115.0" layoutY="137.0" opacity="0.5" prefHeight="384.0" prefWidth="571.0" style="-fx-background-color: black;" visible="false" />
+            <ImageView fx:id="shopItem2" disable="true" fitHeight="130.0" fitWidth="130.0" layoutX="328.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../assets/textures/items/armor1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="priceImage2" disable="true" fitHeight="50.0" fitWidth="50.0" layoutX="342.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../assets/textures/items/coin.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="priceText2" disable="true" layoutX="408.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" wrappingWidth="28.418886822284115">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="priceImage1" disable="true" fitHeight="50.0" fitWidth="50.0" layoutX="144.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../assets/textures/items/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="shopItem1" disable="true" fitHeight="130.0" fitWidth="130.0" layoutX="130.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../assets/textures/items/armor1.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="priceText1" disable="true" layoutX="210.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" wrappingWidth="28.418886822284115">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="priceImage3" disable="true" fitHeight="50.0" fitWidth="50.0" layoutX="548.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../assets/textures/items/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="shopItem3" disable="true" fitHeight="130.0" fitWidth="130.0" layoutX="534.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../assets/textures/items/armor1.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="priceText3" disable="true" layoutX="614.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" wrappingWidth="28.418886822284115">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Text>
+            <Button fx:id="buyItem2" disable="true" layoutX="326.0" layoutY="303.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buyItemTwo" opacity="0.0" prefHeight="130.0" prefWidth="130.0" text="Button" visible="false" />
+            <Button fx:id="buyItem1" disable="true" layoutX="137.0" layoutY="306.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buyItemOne" opacity="0.0" prefHeight="130.0" prefWidth="130.0" text="Button" visible="false" />
+            <Button fx:id="buyItem3" disable="true" layoutX="534.0" layoutY="302.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buyItemThree" opacity="0.0" prefHeight="130.0" prefWidth="130.0" text="Button" visible="false" />
+            <Button fx:id="exitShop" disable="true" layoutX="359.0" layoutY="460.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setExitShop" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: rgb(222,186,160); -fx-border-color: rgb(130,76,26); -fx-border-width: 3;" text="Wyjście" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="StartGameplayButton" layoutX="200.0" layoutY="265.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonStartGameplay" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: rgb(228, 186, 160); -fx-border-color: rgb(130,76,27); -fx-border-width: 6; -fx-border-radius: 10; -fx-background-radius: 15;" text="Rozpocznij rozgrywkę" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </center>
+   <left>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="170.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="150.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
+               <image>
+                  <Image url="@../../../assets/textures/board/PlayerBox.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="150.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
+               <image>
+                  <Image url="@../../../assets/textures/board/PlayerBox.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="150.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
+               <image>
+                  <Image url="@../../../assets/textures/board/PlayerBox.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="150.0" layoutY="577.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
+               <image>
+                  <Image url="@../../../assets/textures/board/PlayerBox.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="CharDisplay1" fitHeight="80.0" fitWidth="80.0" layoutX="37.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/characters/char1/char1yellow.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="CharDisplay2" fitHeight="80.0" fitWidth="80.0" layoutX="37.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/characters/char2/char2green.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="CharDisplay3" fitHeight="80.0" fitWidth="80.0" layoutX="37.0" layoutY="429.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/characters/char3/char3blue.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="CharDisplay4" fitHeight="80.0" fitWidth="80.0" layoutX="37.0" layoutY="596.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/characters/char4/char4red.png" />
+               </image>
+            </ImageView>
+            <Circle fill="#fdff1f" layoutX="14.0" layoutY="55.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="20.0" />
+            <Circle fill="#4bff21" layoutX="14.0" layoutY="222.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="20.0" />
+            <Circle fill="#21beff" layoutX="14.0" layoutY="390.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="20.0" />
+            <Circle fill="#ff1b1b" layoutX="14.0" layoutY="557.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="20.0" />
+            <Text fill="WHITE" layoutX="82.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz 1" wrappingWidth="83.63671875" AnchorPane.leftAnchor="60.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="28.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz 2" wrappingWidth="83.63671875" AnchorPane.leftAnchor="60.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="26.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz 3" wrappingWidth="83.63671875" AnchorPane.leftAnchor="60.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="60.0" layoutY="565.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz 4" wrappingWidth="83.63671875" AnchorPane.leftAnchor="60.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fx:id="Health1" fill="#4bff21" layoutX="144.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fx:id="Attack1" fill="#ff1b1b" layoutX="144.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fx:id="Coins1" fill="#ffd721" layoutX="144.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fx:id="Health2" fill="#4bff21" layoutX="144.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fx:id="Attack2" fill="#ff1b1b" layoutX="144.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fx:id="Coins2" fill="#ffd721" layoutX="144.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fx:id="Health3" fill="#4bff21" layoutX="144.0" layoutY="442.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fx:id="Attack3" fill="#ff1b1b" layoutX="144.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fx:id="Coins3" fill="#ffd721" layoutX="144.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fx:id="Health4" fill="#4bff21" layoutX="144.0" layoutY="609.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fx:id="Attack4" fill="#ff1b1b" layoutX="144.0" layoutY="648.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fx:id="Coins4" fill="#ffd721" layoutX="144.0" layoutY="687.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="720.0" prefWidth="172.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="ThrowDiceButton" disable="true" layoutY="136.0" mnemonicParsing="false" onAction="#handleButtonDice" prefHeight="37.0" prefWidth="159.0" style="-fx-background-color: rgb(228, 186, 160);" text="Rzuć kością" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Button>
+            <ImageView fx:id="diceImage" fitHeight="80.0" fitWidth="80.0" layoutX="40.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/textures/dice/dice3.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+   </right>
+</BorderPane>

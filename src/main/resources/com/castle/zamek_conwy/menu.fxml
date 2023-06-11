@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="720.0" prefWidth="1280.0" styleClass="menu" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.castle.zamek_conwy.MenuManager">
+   <stylesheets>
+      <URL value="@../../../assets/css/backgrounds.css" />
+   </stylesheets>
+   <children>
+      <Button alignment="CENTER" layoutX="552.0" layoutY="374.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToAuthors" prefHeight="34.0" prefWidth="176.0" style="-fx-background-color: rgb(228, 186, 160);" styleClass="text" text="Autorzy">
+         <font>
+            <Font name="zamekFont" size="12.0" />
+         </font></Button>
+      <Button alignment="CENTER" layoutX="552.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToCharacters" prefHeight="34.0" prefWidth="176.0" style="-fx-background-color: rgb(228, 186, 160);" text="Graj">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Button alignment="CENTER" layoutX="552.0" layoutY="314.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToInstruction" prefHeight="34.0" prefWidth="176.0" style="-fx-background-color: rgb(228, 186, 160);" text="Instrukcja" />
+      <Button alignment="CENTER" layoutX="552.0" layoutY="434.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#exitApplication" prefHeight="34.0" prefWidth="176.0" style="-fx-background-color: rgb(228, 186, 160);" text="Wyjście" />
+      <Text fill="WHITE" layoutX="427.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ZAMEK CONWY" wrappingWidth="438.72998046875">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
