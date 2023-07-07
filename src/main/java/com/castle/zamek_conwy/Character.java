@@ -6,8 +6,10 @@ public class Character {
             new Character(3, 3, 5),    // Character 1
             new Character(3, 4, 0),    // Character 2
             new Character(4, 3, 2),    // Character 3
-            new Character(2, 3, 9)     // Character 4
+            new Character(3, 2, 9)     // Character 4
     };
+
+    private int characterID;
 
     private int health;
     private int attack;
@@ -36,11 +38,13 @@ public class Character {
 
         if (character_type >= 1 && character_type <= characterStats.length) {
             Character selectedCharacter = characterStats[character_type - 1];
+            this.characterID = character_type;
             this.attack = selectedCharacter.attack;
             this.health = selectedCharacter.health;
             this.money = selectedCharacter.money;
         }
         else {
+            this.characterID = 0;
             this.attack = 0;
             this.health = 0;
             this.money = 0;
@@ -79,6 +83,10 @@ public class Character {
 
     public void setMoney(int money) {
         this.money = money;
+    }
+
+    public int getCharacterID() {
+        return characterID;
     }
 
     public void setColor(Color color) {

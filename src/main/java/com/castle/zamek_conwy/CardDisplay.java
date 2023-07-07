@@ -50,12 +50,20 @@ public class CardDisplay extends StackPane {
         imageView.setTranslateY(-45);
     }
 
-    public void displayCoinBag(int amount) {
-        imageView.setImage(new Image(getClass().getResourceAsStream("/assets/textures/items/coin.png")));
+    public void displayCoins(int amount) {
+        attackText.setText("Monety: " + amount);
+        if (amount >= 3) {
+            nameText.setText("Worek złota");
+            imageView.setImage(new Image(getClass().getResourceAsStream("/assets/textures/items/coin_bag.png")));
+        }
+        else {
+            nameText.setText("Monety");
+            imageView.setImage(new Image(getClass().getResourceAsStream("/assets/textures/items/coin.png")));
+            if (amount == 1)
+                attackText.setText("Moneta");
+        }
         imageView.setFitWidth(80);
         imageView.setFitHeight(80);
-        nameText.setText("Worek złota");
-        attackText.setText("Monety: " + amount);
     }
 
     public void displayCrossEvent(boolean win) {

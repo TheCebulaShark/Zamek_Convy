@@ -73,19 +73,19 @@ public class Board {
 
     public void playersInit() {
         player1 = new Player(selectedChar1 + 1, Character.Color.YELLOW);
-        setCharacterImageViev(0, selectedChar1);
+        setCharacterImageView(0, selectedChar1);
         player1.setImage(playerOne[selectedChar1]);
         player1.setName("Gracz 1");
         player2 = new Player(selectedChar2 + 1, Character.Color.LIMEGREEN);
-        setCharacterImageViev(1, selectedChar2);
+        setCharacterImageView(1, selectedChar2);
         player2.setImage(playerTwo[selectedChar2]);
         player2.setName("Gracz 2");
         player3 = new Player(selectedChar3 + 1, Character.Color.DEEPSKYBLUE);
-        setCharacterImageViev(2, selectedChar3);
+        setCharacterImageView(2, selectedChar3);
         player3.setImage(playerThree[selectedChar3]);
         player3.setName("Gracz 3");
         player4 = new Player(selectedChar4 + 1, Character.Color.RED);
-        setCharacterImageViev(3, selectedChar4);
+        setCharacterImageView(3, selectedChar4);
         player4.setImage(playerFour[selectedChar4]);
         player4.setName("Gracz 4");
         playerTurn = player1;
@@ -269,25 +269,25 @@ public class Board {
         double posX = fields[pos].getLayoutX();
         double posY = fields[pos].getLayoutY();
         int color = player.character.getColor().getColor();
-        double offsetX,offssetY;
+        double offsetX,offsetY;
         if(color == 0) {
             offsetX = OFFSET_X_LEFT;
-            offssetY = OFFSET_Y_TOP;
+            offsetY = OFFSET_Y_TOP;
         }
         else if (color == 1) {
             offsetX = OFFSET_X_RIGHT;
-            offssetY = OFFSET_Y_TOP;
+            offsetY = OFFSET_Y_TOP;
         }
         else if (color == 2) {
             offsetX = OFFSET_X_LEFT;
-            offssetY = OFFSET_Y_BOTTOM;
+            offsetY = OFFSET_Y_BOTTOM;
         }
         else {
             offsetX = OFFSET_X_RIGHT;
-            offssetY = OFFSET_Y_BOTTOM;
+            offsetY = OFFSET_Y_BOTTOM;
         }
         player.setPosition(pos);
-        setPawnPosition(player,posX+offsetX,posY+offssetY);
+        setPawnPosition(player,posX+offsetX,posY+offsetY);
     }
 
     public void setPawnPosition(Player player,double posX,double posY) {
@@ -327,18 +327,6 @@ public class Board {
     }
 
 
-    public int getDiceValue() {
-        return diceValue;
-    }
-
-    public void resetPress() {
-        isDicePressed = false;
-    }
-
-    public boolean getIsDicePressed() {
-        return isDicePressed;
-    }
-
     public Button[] fields;
 
 
@@ -357,11 +345,6 @@ public class Board {
         return fields[pos].getLayoutY();
     }
 
-    private final Image weapons[] = {new Image(getClass().getResourceAsStream("/assets/textures/empty.png")),
-            new Image(getClass().getResourceAsStream("/assets/textures/items/weapon1.png")),
-            new Image(getClass().getResourceAsStream("/assets/textures/items/weapon2.png")),
-            new Image(getClass().getResourceAsStream("/assets/textures/items/weapon3.png"))
-    };
 
     private final Image dices[] = {new Image(getClass().getResourceAsStream("/assets/textures/dice/dice1.png")),
             new Image(getClass().getResourceAsStream("/assets/textures/dice/dice2.png")),
@@ -396,7 +379,7 @@ public class Board {
             new Image(getClass().getResourceAsStream("/assets/textures/characters/char3/char3red.png")),
             new Image(getClass().getResourceAsStream("/assets/textures/characters/char4/char4red.png"))};
 
-    public void setCharacterImageViev(int color, int type) {
+    public void setCharacterImageView(int color, int type) {
         if (color == 0)
         {
             PawnChar1.setImage(playerOne[type]);
@@ -434,11 +417,28 @@ public class Board {
     public void setSelectedChar4(int selectedChar4) {
         this.selectedChar4 = selectedChar4;
     }
+
+    public void hidePlayer(int whichPlayer) {
+        if (whichPlayer == 0) {
+            PawnChar1.setVisible(false);
+        }
+        else if (whichPlayer == 1) {
+            PawnChar2.setVisible(false);
+        }
+        else if (whichPlayer == 2) {
+            PawnChar3.setVisible(false);
+        }
+        else {
+            PawnChar4.setVisible(false);
+        }
+    }
     public String buttonId1;
     public String buttonId2;
     public int fieldPressed;
     public int possiblePos1;
     public int possiblePos2;
+
+    public boolean isExtraPositionAvailable = false;
     Player playerTurn;
 
     private int playersAlive;
@@ -651,20 +651,15 @@ public class Board {
     public void fieldEvent() {
         Random random = new Random();
         int playerPosition = playerTurn.getPosition();
-        if(playerPosition == CHEST_FIELD)
+        if (playerPosition == CHEST_FIELD)
         {
             int rand = random.nextInt(3) + 3;
             CardDisplay coin = new CardDisplay();
-            coin.displayCoinBag(rand);
+            coin.displayCoins(rand);
 
             coin.slideCenter(scene);
 
-            if (playerTurn.character.getMoney() + rand > 9) {
-                playerTurn.character.setMoney(9);
-            }
-            else {
-                playerTurn.character.setMoney(playerTurn.character.getMoney() + rand);
-            }
+            playerTurn.character.setMoney(Math.min(playerTurn.character.getMoney() + rand, 9));
 
             coin.pauseClear(coin, scene, false);
         }
@@ -688,13 +683,12 @@ public class Board {
             {
                 playerTurn.character.setHealth(playerTurn.character.getHealth() - 1);
                 if(playerTurn.character.getHealth() <= 0)
-                {
                     playerTurn.setDead();
-                }
             }
             else
             {
-                playerTurn.character.setHealth(playerTurn.character.getHealth() + 1);
+                if (playerTurn.character.getHealth() < 9)
+                    playerTurn.character.setHealth(playerTurn.character.getHealth() + 1);
             }
             displayStats();
             cross.pauseClear(cross, scene, false);
@@ -703,6 +697,7 @@ public class Board {
         {
             Player enemy = null;
             int enemyHealth = 0;
+            int enemyID = 0;
             if(player1.getPosition() == playerPosition && whichPlayerTurn != 0 && !player1.isDead())
             {
                 if(player1.character.getHealth() > enemyHealth)
@@ -716,6 +711,7 @@ public class Board {
                 if(player2.character.getHealth() > enemyHealth)
                 {
                     enemy = player2;
+                    enemyID = 1;
                     enemyHealth = player2.character.getHealth();
                 }
             }
@@ -724,6 +720,7 @@ public class Board {
                 if(player3.character.getHealth() > enemyHealth)
                 {
                     enemy = player3;
+                    enemyID = 2;
                     enemyHealth = player3.character.getHealth();
                 }
             }
@@ -732,6 +729,7 @@ public class Board {
                 if(player4.character.getHealth() > enemyHealth)
                 {
                     enemy = player4;
+                    enemyID = 3;
                     enemyHealth = player4.character.getHealth();
                 }
             }
@@ -749,8 +747,10 @@ public class Board {
                 card1.showCombatResult(res.get(0), scene);
 
                 card1.pauseClear(card1, scene, true);
-                if(enemy.isDead())
+                if(enemy.isDead()) {
+                    hidePlayer(enemyID);
                     decreasePlayerAlive();
+                }
             }
             else {
                 CardHandler cardHandler = new CardHandler("hand");
@@ -758,7 +758,7 @@ public class Board {
                 cardHandler.drawCard(playerTurn);
                 CardDisplay drawedCard = cardHandler.getCardDisplay();
 
-                if(cardHandler.getType().equals(CardHandler.Type.MONSTER)) {
+                if (cardHandler.getType().equals(CardHandler.Type.MONSTER)) {
                     Combat combat = new Combat();
                     CardDisplay card1 = new CardDisplay();
                     card1.displayPlayerInfo(playerTurn);
@@ -776,10 +776,14 @@ public class Board {
                         playerTurn.addBonusAttackOfTrophies();
                         displayStats();
                     }
+                    else {
+                        if (playerTurn.getHealth() == 0)
+                            hidePlayer(whichPlayerTurn);
+                    }
 
                     drawedCard.pauseClear(card1, scene, true);
                 }
-                else{
+                else {
                     drawedCard.slideCenter(scene);
 
                     drawedCard.pauseClear(drawedCard, scene, false);
@@ -787,8 +791,10 @@ public class Board {
             }
         }
         displayStats();
-        if(playerTurn.isDead())
+        if (playerTurn.isDead()) {
+            hidePlayer(whichPlayerTurn);
             decreasePlayerAlive();
+        }
     }
 
     public void decreasePlayerAlive(){
@@ -810,16 +816,25 @@ public class Board {
         Button clickedButton = (Button) event.getSource();
         String buttonId = clickedButton.getId();
 
-        if ((buttonId.equals(buttonId1) || buttonId.equals(buttonId2)) && !playerMoved) {
+        if ((buttonId.equals(buttonId1) || buttonId.equals(buttonId2) || (isExtraPositionAvailable && buttonId.equals(fields[SHOP_FIELD].getId()))) && !playerMoved) {
             playerMoved = true;
-            fields[possiblePos1].setOpacity(0);
-            fields[possiblePos2].setOpacity(0);
-            if(buttonId.equals(buttonId1)) {
+            if (isExtraPositionAvailable && buttonId.equals(fields[SHOP_FIELD].getId())) {
+                fieldPressed = SHOP_FIELD;
+            }
+            else if (buttonId.equals(buttonId1)) {
                 fieldPressed = possiblePos1;
             }
             else {
                 fieldPressed = possiblePos2;
             }
+
+            if (isExtraPositionAvailable) {
+                isExtraPositionAvailable = false;
+                fields[SHOP_FIELD].setOpacity(0);
+            }
+            fields[possiblePos1].setOpacity(0);
+            fields[possiblePos2].setOpacity(0);
+
             playerMovement(fieldPressed, playerTurn);
             fieldEvent();
             if(!isShop)
@@ -878,14 +893,26 @@ public class Board {
             isDicePressed = true;
             diceValue = dice.rollDice();
             displayDice(diceValue);
+
             possiblePos1 = playerTurn.getPosition() - diceValue;
             possiblePos2 = playerTurn.getPosition() + diceValue;
-            if(possiblePos1 < 0) {
+
+            if (possiblePos1 < 0) {
                 possiblePos1 = NUMBER_OF_FIELDS + possiblePos1;
             }
-            if(possiblePos2 > NUMBER_OF_FIELDS - 1) {
+            if (possiblePos2 > NUMBER_OF_FIELDS - 1) {
                 possiblePos2 = possiblePos2 - NUMBER_OF_FIELDS;
             }
+
+            if (playerTurn.character.getCharacterID() == 4) {
+                if (playerTurn.getPosition() != SHOP_FIELD) {
+                    if (possiblePos1 == SHOP_FIELD - 1 || possiblePos1 == SHOP_FIELD + 1 || possiblePos2 == SHOP_FIELD - 1 || possiblePos2 == SHOP_FIELD + 1) {
+                        isExtraPositionAvailable = true;
+                        fields[SHOP_FIELD].setOpacity(0.25);
+                    }
+                }
+            }
+
             buttonId1 = fields[possiblePos1].getId();
             buttonId2 = fields[possiblePos2].getId();
             fields[possiblePos1].setOpacity(0.25);

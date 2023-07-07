@@ -35,7 +35,8 @@ public class Player extends Character {
     public void addBonusAttackOfTrophies() {
         if (this.trophies >= 7) {
             this.trophies = 0;
-            this.character.setAttack(this.character.getAttack() + 1);
+            if (this.character.getAttack() < 9)
+                this.character.setAttack(this.character.getAttack() + 1);
         }
     }
 

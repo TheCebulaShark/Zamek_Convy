@@ -11,7 +11,7 @@ public class CardHandler {
     private CardDisplay cardDisplay;
     public enum Type{
         MONSTER(0),
-        EVENT(1),
+        COINS(1),
         ITEM(2);
 
         private final int value;
@@ -43,39 +43,49 @@ public class CardHandler {
             enemy = enemies.getRandomEnemy();
             cardDisplay.displayEnemyInfo(enemy);
         } else {
-            type = Type.ITEM;
-            int randomItem = random.nextInt(2);
-            if (randomItem == 0) {
-                Weapon weapon;
-                int randomWeapon = random.nextInt(20);
-                if (randomWeapon < 13) {
-                    weapon = new Weapon(1, "/assets/textures/items/weapon1.png");
-                } else if (randomWeapon < 18) {
-                    weapon = new Weapon(2, "/assets/textures/items/weapon2.png");
-                } else {
-                    weapon = new Weapon(3, "/assets/textures/items/weapon3.png");
-                }
-                cardDisplay.displayWeaponInfo(weapon);
-                if(player.inventory.getWeapon().getAttack() < weapon.attack) {
-                    player.inventory.setWeapon(weapon);
-                }
-            } else {
-                Armor armor = new Armor();
-                int randomArmor = random.nextInt(4);
-                if (randomArmor == 0) {
-                    cardDisplay.displayArmorInfo(armor.helmet, "Hełm");
-                    player.inventory.setGotHelmet();
-                } else if (randomArmor == 1) {
-                    cardDisplay.displayArmorInfo(armor.chestplate, "Zbroja");
-                    player.inventory.setGotChestplate();
-                } else if (randomArmor == 2) {
-                    cardDisplay.displayArmorInfo(armor.leggings, "Nogawice");
-                    player.inventory.setGotLeggings();
-                } else {
-                    cardDisplay.displayArmorInfo(armor.boots, "Buty");
-                    player.inventory.setGotBoots();
-                }
+            randomNumber = random.nextInt(3);
+            if (randomNumber == 0) {
+                type = Type.COINS;
+                int randomCoins = random.nextInt(3) + 1;
+                player.character.setMoney(Math.min(player.character.getMoney() + randomCoins, 9));
 
+                cardDisplay.displayCoins(randomCoins);
+            }
+            else {
+                type = Type.ITEM;
+                int randomItem = random.nextInt(2);
+                if (randomItem == 0) {
+                    Weapon weapon;
+                    int randomWeapon = random.nextInt(4);
+
+                    if (randomWeapon == 0) {
+                        weapon = new Weapon(2, "/assets/textures/items/weapon2.png");
+                    } else {
+                        weapon = new Weapon(1, "/assets/textures/items/weapon1.png");
+                    }
+
+                    cardDisplay.displayWeaponInfo(weapon);
+                    if (player.inventory.getWeapon().getAttack() < weapon.attack) {
+                        player.inventory.setWeapon(weapon);
+                    }
+                } else {
+                    Armor armor = new Armor();
+                    int randomArmor = random.nextInt(4);
+                    if (randomArmor == 0) {
+                        cardDisplay.displayArmorInfo(armor.helmet, "Hełm");
+                        player.inventory.setGotHelmet();
+                    } else if (randomArmor == 1) {
+                        cardDisplay.displayArmorInfo(armor.chestplate, "Zbroja");
+                        player.inventory.setGotChestplate();
+                    } else if (randomArmor == 2) {
+                        cardDisplay.displayArmorInfo(armor.leggings, "Nogawice");
+                        player.inventory.setGotLeggings();
+                    } else {
+                        cardDisplay.displayArmorInfo(armor.boots, "Buty");
+                        player.inventory.setGotBoots();
+                    }
+
+                }
             }
         }
     }
