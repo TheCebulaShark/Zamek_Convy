@@ -9,8 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class MenuManager {
@@ -83,7 +85,25 @@ public class MenuManager {
     @FXML
     ImageView DisplayedChar4;
 
+    @FXML
+    Pane helpPane;
+    @FXML
+    ImageView helpCharImage;
+    @FXML
+    Text helpHP;
+    @FXML
+    Text helpAttack;
+    @FXML
+    Text helpCoins;
+    @FXML
+    Text helpPassive;
+
     private int selectedChar1 = 0, selectedChar2 = 1, selectedChar3 = 2, selectedChar4 = 3;
+
+    private Image characters[] = {new Image(getClass().getResourceAsStream("/assets/textures/characters/char1/char1.png")),
+            new Image(getClass().getResourceAsStream("/assets/textures/characters/char2/char2.png")),
+            new Image(getClass().getResourceAsStream("/assets/textures/characters/char3/char3.png")),
+            new Image(getClass().getResourceAsStream("/assets/textures/characters/char4/char4.png"))};
 
     private Image playerOne[] = {new Image(getClass().getResourceAsStream("/assets/textures/characters/char1/char1yellow.png")),
             new Image(getClass().getResourceAsStream("/assets/textures/characters/char2/char2yellow.png")),
@@ -106,6 +126,55 @@ public class MenuManager {
             new Image(getClass().getResourceAsStream("/assets/textures/characters/char4/char4red.png"))};
 
 
+    public void displayHelp(int selectedChar) {
+        Font custFont = Font.loadFont(getClass().getResourceAsStream("/assets/font/ZamekConvy.ttf"), 24);
+        helpHP.setFont(custFont);
+        helpAttack.setFont(custFont);
+        helpCoins.setFont(custFont);
+        helpPassive.setFont(custFont);
+
+        if (selectedChar == 3) {
+            helpPane.setPrefHeight(175);
+            helpPassive.setText("Ma większą szansę na wejście do sklepu");
+        }
+        else {
+            helpPane.setPrefHeight(125);
+            helpPassive.setText("");
+        }
+
+        helpCharImage.setImage(characters[selectedChar]);
+
+        helpHP.setText("Życie: " + Character.characterStats[selectedChar].getHealth());
+        helpAttack.setText("Siła: " + Character.characterStats[selectedChar].getAttack());
+        helpCoins.setText("Monety: " + Character.characterStats[selectedChar].getMoney());
+
+        helpPane.setOpacity(1);
+    }
+
+    @FXML
+    public void hideHelp() {
+        helpPane.setOpacity(0);
+    }
+    @FXML
+    public void displayHelp1() {
+        helpPane.setLayoutX(40);
+        displayHelp(selectedChar1);
+    }
+    @FXML
+    public void displayHelp2() {
+        helpPane.setLayoutX(355);
+        displayHelp(selectedChar2);
+    }
+    @FXML
+    public void displayHelp3() {
+        helpPane.setLayoutX(673);
+        displayHelp(selectedChar3);
+    }
+    @FXML
+    public void displayHelp4() {
+        helpPane.setLayoutX(988);
+        displayHelp(selectedChar4);
+    }
 
     @FXML
     public void displayImagePlayerOneRight() {

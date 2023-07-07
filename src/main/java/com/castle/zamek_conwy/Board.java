@@ -673,7 +673,7 @@ public class Board {
         }
         else if(playerPosition == CROSS_FIELD)
         {
-            int rand = random.nextInt(4);
+            int rand = random.nextInt(3);
             CardDisplay cross = new CardDisplay();
             cross.displayCrossEvent(rand != 0);
 
