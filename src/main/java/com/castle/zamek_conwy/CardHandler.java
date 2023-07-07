@@ -36,7 +36,7 @@ public class CardHandler {
         int randomNumber = random.nextInt(100);
         cardDisplay = new CardDisplay();
 
-        int monsterChance = 90;
+        int monsterChance = 85;
         if (randomNumber <= monsterChance) {
             type = Type.MONSTER;
             Enemies enemies = new Enemies();
@@ -44,12 +44,13 @@ public class CardHandler {
             cardDisplay.displayEnemyInfo(enemy);
         } else {
             type = Type.ITEM;
-            int randomItem = random.nextInt(7) + 1;
-            if (randomItem <= 3) {
+            int randomItem = random.nextInt(2);
+            if (randomItem == 0) {
                 Weapon weapon;
-                if (randomItem == 1) {
+                int randomWeapon = random.nextInt(20);
+                if (randomWeapon < 13) {
                     weapon = new Weapon(1, "/assets/textures/items/weapon1.png");
-                } else if (randomItem == 2) {
+                } else if (randomWeapon < 18) {
                     weapon = new Weapon(2, "/assets/textures/items/weapon2.png");
                 } else {
                     weapon = new Weapon(3, "/assets/textures/items/weapon3.png");
@@ -60,13 +61,14 @@ public class CardHandler {
                 }
             } else {
                 Armor armor = new Armor();
-                if (randomItem == 4) {
+                int randomArmor = random.nextInt(4);
+                if (randomArmor == 0) {
                     cardDisplay.displayArmorInfo(armor.helmet, "Hełm");
                     player.inventory.setGotHelmet();
-                } else if (randomItem == 5) {
+                } else if (randomArmor == 1) {
                     cardDisplay.displayArmorInfo(armor.chestplate, "Zbroja");
                     player.inventory.setGotChestplate();
-                } else if (randomItem == 6) {
+                } else if (randomArmor == 2) {
                     cardDisplay.displayArmorInfo(armor.leggings, "Nogawice");
                     player.inventory.setGotLeggings();
                 } else {

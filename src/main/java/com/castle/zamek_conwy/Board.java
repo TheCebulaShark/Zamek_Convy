@@ -658,7 +658,13 @@ public class Board {
             coin.displayCoinBag(rand);
 
             coin.slideCenter(scene);
-            playerTurn.character.setMoney(playerTurn.character.getMoney() + rand);
+
+            if (playerTurn.character.getMoney() + rand > 9) {
+                playerTurn.character.setMoney(9);
+            }
+            else {
+                playerTurn.character.setMoney(playerTurn.character.getMoney() + rand);
+            }
 
             coin.pauseClear(coin, scene, false);
         }
@@ -672,9 +678,9 @@ public class Board {
         }
         else if(playerPosition == CROSS_FIELD)
         {
-            int rand = random.nextInt(2);
+            int rand = random.nextInt(4);
             CardDisplay cross = new CardDisplay();
-            cross.displayCrossEvent(rand == 1);
+            cross.displayCrossEvent(rand != 0);
 
             cross.slideCenter(scene);
 
@@ -851,7 +857,13 @@ public class Board {
         {
             turnsSinceShopClosed++;
             if (turnsSinceShopClosed > TURNS_TO_REOPEN_SHOP) {
-                shop = new Shop();
+                Item item = new Item();
+                item.generateItem();
+                shop.setItem1(item);
+                item.generateItem();
+                shop.setItem2(item);
+                item.generateItem();
+                shop.setItem3(item);
                 isShopOpen = true;
             }
         }

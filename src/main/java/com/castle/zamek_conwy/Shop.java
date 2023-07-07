@@ -1,9 +1,9 @@
 package com.castle.zamek_conwy;
 import java.util.Random;
 public class Shop {
-    private Item item1;
-    private Item item2;
-    private Item item3;
+    private Item item1 = new Item();
+    private Item item2 = new Item();
+    private Item item3 = new Item();
     private int price1;
     private int price2;
     private int price3;
@@ -12,10 +12,10 @@ public class Shop {
     private boolean isBought3;
     Random random = new Random();
 
-    public Shop(){
-        this.item1 = new Item();
-        this.item2 = new Item();
-        this.item3 = new Item();
+    public Shop() {
+        this.item1.generateItem();
+        this.item2.generateItem();
+        this.item3.generateItem();
         this.price1 = generatePrice(item1);
         this.price2 = generatePrice(item2);
         this.price3 = generatePrice(item3);
@@ -81,5 +81,23 @@ public class Shop {
 
     public void setBought3(boolean bought3) {
         isBought3 = bought3;
+    }
+
+    public void setItem1(Item item1) {
+        this.item1 = item1;
+        price1 = generatePrice(item1);
+        this.isBought1 = false;
+    }
+
+    public void setItem2(Item item2) {
+        this.item2 = item2;
+        price2 = generatePrice(item2);
+        this.isBought2 = false;
+    }
+
+    public void setItem3(Item item3) {
+        this.item3 = item3;
+        price3 = generatePrice(item3);
+        this.isBought3 = false;
     }
 }

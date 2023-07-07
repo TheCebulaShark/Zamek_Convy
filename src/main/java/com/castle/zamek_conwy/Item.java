@@ -5,14 +5,14 @@ import java.util.Random;
 public class Item {
 
     private String texturePath;
-
-    private String name;
     private int itemType;
     private int armorType;
     private Weapon weapon = new Weapon();
     private Armor.ArmorPart armor;
 
-    public Item() {
+    public Item() {}
+
+    public void generateItem() {
         Random random = new Random();
         this.itemType = random.nextInt(2);
         if(this.itemType == 0)
@@ -70,10 +70,6 @@ public class Item {
 
     public Weapon getWeapon() {
         return weapon;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public Armor.ArmorPart getArmor() {

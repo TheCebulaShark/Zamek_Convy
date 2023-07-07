@@ -3,10 +3,10 @@ package com.castle.zamek_conwy;
 public class Character {
 
     private static Character[] characterStats = {
-            new Character(3, 3, 4),    // Character 1
+            new Character(3, 3, 5),    // Character 1
             new Character(3, 4, 0),    // Character 2
             new Character(4, 3, 2),    // Character 3
-            new Character(3, 2, 8)     // Character 4
+            new Character(2, 3, 9)     // Character 4
     };
 
     private int health;
