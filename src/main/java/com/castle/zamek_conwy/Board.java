@@ -17,8 +17,10 @@ import java.util.Random;
 public class Board {
 
     public static final int OFFSET_X_LEFT = 1;
+    public static final int OFFSET_X_CENTER = 37;
     public static final int OFFSET_X_RIGHT = 73;
     public static final int OFFSET_Y_TOP = 59;
+    public static final int OFFSET_Y_CENTER = 73;
     public static final int OFFSET_Y_BOTTOM = 87;
     public static final int CHEST_FIELD = 0;
     public static final int SHOP_FIELD = 6;
@@ -40,6 +42,8 @@ public class Board {
     private Player player3;
     private Player player4;
 
+    private int playersAmount;
+
     public Shop shop = new Shop();
 
     public Scene scene;
@@ -55,6 +59,10 @@ public class Board {
         this.selectedChar3 = selectedChar3;
         this.selectedChar4 = selectedChar4;
     }
+
+    public void getAmountOfPlayers(int playersAmount) {
+        this.playersAmount = playersAmount;
+    }
     public void setScene(Scene scene) {
         this.scene = scene;
     }
@@ -67,24 +75,38 @@ public class Board {
         playersInit();
         displayStats();
         displayPlayerInventory();
-        playersAlive = 4;
+        playersAlive = playersAmount;
     }
 
 
     public void playersInit() {
-        player1 = new Player(selectedChar1 + 1, Character.Color.YELLOW);
+        player1 = new Player(selectedChar1 + 1, Character.Color.YELLOW, false, 0);
         setCharacterImageView(0, selectedChar1);
         player1.setImage(playerOne[selectedChar1]);
         player1.setName("Gracz 1");
-        player2 = new Player(selectedChar2 + 1, Character.Color.LIMEGREEN);
+
+        player2 = new Player(selectedChar2 + 1, Character.Color.LIMEGREEN, false, 0);
         setCharacterImageView(1, selectedChar2);
         player2.setImage(playerTwo[selectedChar2]);
         player2.setName("Gracz 2");
-        player3 = new Player(selectedChar3 + 1, Character.Color.DEEPSKYBLUE);
+
+        if (playersAmount > 2) {
+            player3 = new Player(selectedChar3 + 1, Character.Color.DEEPSKYBLUE, false, 0);
+        }
+        else {
+            player3 = new Player(1, Character.Color.DEEPSKYBLUE, true, 0);
+        }
         setCharacterImageView(2, selectedChar3);
         player3.setImage(playerThree[selectedChar3]);
         player3.setName("Gracz 3");
-        player4 = new Player(selectedChar4 + 1, Character.Color.RED);
+
+
+        if (playersAmount > 3) {
+            player4 = new Player(selectedChar4 + 1, Character.Color.RED, false, 0);
+        }
+        else {
+            player4 = new Player(1, Character.Color.DEEPSKYBLUE, true, 0);
+        }
         setCharacterImageView(3, selectedChar4);
         player4.setImage(playerFour[selectedChar4]);
         player4.setName("Gracz 4");
@@ -747,7 +769,7 @@ public class Board {
                 card1.showCombatResult(res.get(0), scene);
 
                 card1.pauseClear(card1, scene, true);
-                if(enemy.isDead()) {
+                if (enemy.isDead()) {
                     hidePlayer(enemyID);
                     decreasePlayerAlive();
                 }

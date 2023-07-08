@@ -25,7 +25,7 @@ public class CardDisplay extends StackPane {
     private Text attackText;
 
     public CardDisplay() {
-        backgroundImageView = new ImageView(new Image(getClass().getResourceAsStream("/assets/textures/card/CardOpen.png")));
+        backgroundImageView = new ImageView(new Image(getClass().getResourceAsStream("/assets/textures/card/CardFront.png")));
         imageView = new ImageView();
         nameText = new Text();
         attackText = new Text();

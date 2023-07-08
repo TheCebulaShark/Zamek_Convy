@@ -7,13 +7,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
+import javafx.scene.input.KeyEvent;
 
 public class MenuManager {
     @FXML
@@ -22,6 +23,7 @@ public class MenuManager {
     private Scene scene;
     @FXML
     private Parent root;
+
     @FXML
     public void switchToMenu(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("menu.fxml"));
@@ -54,6 +56,7 @@ public class MenuManager {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("board.fxml"));
         Parent root = loader.load();
         Board board = loader.getController();
+        board.getAmountOfPlayers(playersAmount);
         board.setSelectedChars(selectedChar1, selectedChar2, selectedChar3, selectedChar4);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -77,6 +80,9 @@ public class MenuManager {
     }
 
     @FXML
+    Text menuText;
+
+    @FXML
     ImageView DisplayedChar1;
     @FXML
     ImageView DisplayedChar2;
@@ -98,7 +104,25 @@ public class MenuManager {
     @FXML
     Text helpPassive;
 
+    @FXML
+    Text amountOfPlayersText;
+
+    @FXML
+    TextField PlayerName1;
+    @FXML
+    TextField PlayerName2;
+    @FXML
+    TextField PlayerName3;
+    @FXML
+    TextField PlayerName4;
+
+    @FXML
+    Pane Player3;
+    @FXML
+    Pane Player4;
+
     private int selectedChar1 = 0, selectedChar2 = 1, selectedChar3 = 2, selectedChar4 = 3;
+    private int playersAmount = 4;
 
     private Image characters[] = {new Image(getClass().getResourceAsStream("/assets/textures/characters/char1/char1.png")),
             new Image(getClass().getResourceAsStream("/assets/textures/characters/char2/char2.png")),
@@ -127,12 +151,6 @@ public class MenuManager {
 
 
     public void displayHelp(int selectedChar) {
-        Font custFont = Font.loadFont(getClass().getResourceAsStream("/assets/font/ZamekConvy.ttf"), 24);
-        helpHP.setFont(custFont);
-        helpAttack.setFont(custFont);
-        helpCoins.setFont(custFont);
-        helpPassive.setFont(custFont);
-
         if (selectedChar == 3) {
             helpPane.setPrefHeight(175);
             helpPassive.setText("Ma większą szansę na wejście do sklepu");
@@ -174,6 +192,24 @@ public class MenuManager {
     public void displayHelp4() {
         helpPane.setLayoutX(988);
         displayHelp(selectedChar4);
+    }
+
+    @FXML
+    public void changePlayersAmount() {
+        playersAmount++;
+        if (playersAmount >= 5) {
+            playersAmount = 2;
+            Player3.setVisible(false);
+            Player4.setVisible(false);
+        }
+        else if (playersAmount == 3) {
+            Player3.setVisible(true);
+        }
+        else {
+            Player4.setVisible(true);
+        }
+
+        amountOfPlayersText.setText("Liczba Graczy: " + playersAmount);
     }
 
     @FXML
@@ -230,21 +266,5 @@ public class MenuManager {
         selectedChar4--;
         if(selectedChar4 <= -1) selectedChar4 = 3;
         DisplayedChar4.setImage(playerFour[selectedChar4]);
-    }
-
-    public int getSelectedChar1() {
-        return selectedChar1;
-    }
-
-    public int getSelectedChar2() {
-        return selectedChar2;
-    }
-
-    public int getSelectedChar3() {
-        return selectedChar3;
-    }
-
-    public int getSelectedChar4() {
-        return selectedChar4;
     }
 }

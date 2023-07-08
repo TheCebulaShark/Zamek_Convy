@@ -13,19 +13,19 @@ public class Player extends Character {
 
     private int trophies;
 
-    public Player(int characterType, Color color) {
+    public Player(int characterType, Color color, boolean isDead, int position) {
         super(characterType, color);
-        this.isDead = false;
+        this.isDead = isDead;
         this.character = this;
         this.inventory = new Inventory();
-        if( color.getColor() == 0) {
-            position = 3;
+        if (color.getColor() == 0) {
+            this.position = 3;
         }
         else if (color.getColor() == 1) {
-            position = 9;
+            this.position = 9;
         }
         else if (color.getColor() == 2) {
-            position = 15;
+            this.position = 15;
         }
         else {
             position = 21;

@@ -4,7 +4,7 @@ public class Weapon {
     public String texturePath;
 
     private static Weapon[] weapons = {
-            new Weapon(0, "/assets/textures/empty.png"),             // Weapon 1
+            new Weapon(0, "/assets/textures/mic/empty.png"),             // Weapon 1
             new Weapon(1, "/assets/textures/items/weapon1.png"),     // Weapon 2
             new Weapon(2, "/assets/textures/items/weapon2.png"),     // Weapon 3
             new Weapon(3, "/assets/textures/items/weapon3.png")      // Weapon 4

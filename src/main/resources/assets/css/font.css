@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "ZamekConvy";
+    src: url("../font/ZamekConvy.ttf");
+}
+
+.font {
+    -fx-font-family: "ZamekConvy";
+}
+
+.playerName-textField {
+    -fx-font-size: 22;
+}
+
+.button {
+    -fx-font-size: 24;
+}
+
+.startGameButton {
+    -fx-font-size: 40;
+}
