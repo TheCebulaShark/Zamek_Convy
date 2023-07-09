@@ -12,272 +12,295 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.castle.zamek_conwy.MenuManager">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: rgb(44,44,44);" styleClass="background" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.castle.zamek_conwy.MenuManager">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: rgb(44,44,44);" styleClass="background">
-          <children>
-            <Pane layoutX="415.0" layoutY="47.0" prefHeight="150.0" prefWidth="450.0" style="-fx-background-color: rgb(228, 186, 160, 0.7); -fx-border-color: rgb(130,76,27); -fx-border-width: 6; -fx-border-radius: 10; -fx-background-radius: 15;">
-               <children>
-                  <Text fx:id="menuText" fill="WHITE" layoutX="71.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Wybór Postacii" textAlignment="CENTER" wrappingWidth="308.775390625">
-                     <font>
-                        <Font size="70.0" />
-                     </font>
-                  </Text>
-               </children>
-            </Pane>
-              <Button fx:id="PlayButton" alignment="CENTER" contentDisplay="CENTER" layoutX="555.0" layoutY="625.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToGame" prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: rgb(228, 186, 160, 0.7); -fx-border-color: rgb(130,76,27); -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;" text="Graj">
-                  <font>
-                      <Font size="24.0" />
-                  </font>
+        <Pane layoutX="415.0" layoutY="50.0" prefHeight="150.0" prefWidth="450.0" style="-fx-background-color: rgb(228, 186, 160, 0.7); -fx-border-color: rgb(130,76,27); -fx-border-width: 6; -fx-border-radius: 10; -fx-background-radius: 15;">
+           <children>
+              <Text fx:id="menuText" fill="WHITE" layoutX="71.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Wybór Postacii" textAlignment="CENTER" wrappingWidth="308.775390625">
+                 <font>
+                    <Font size="70.0" />
+                 </font>
+              </Text>
+           </children>
+        </Pane>
+          <Button fx:id="PlayButton" alignment="CENTER" contentDisplay="CENTER" layoutX="555.0" layoutY="625.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToGame" prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: rgb(228, 186, 160, 0.7); -fx-border-color: rgb(130,76,27); -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;" text="Graj">
+              <font>
+                  <Font size="24.0" />
+              </font>
+           <styleClass>
+              <String fx:value="font" />
+              <String fx:value="button" />
+           </styleClass>
+        </Button>
+        <Pane fx:id="Player1" layoutX="28.0" layoutY="248.0" prefHeight="282.0" prefWidth="280.0">
+           <children>
+              <Pane layoutX="58.0" layoutY="1.0" prefHeight="220.0" prefWidth="165.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 7; -fx-border-radius: 10; -fx-background-radius: 15;">
+                 <children>
+                    <ImageView fx:id="info1" fitHeight="25.0" fitWidth="25.0" layoutX="133.0" layoutY="10.0" onMouseEntered="#displayHelp1" onMouseExited="#hideHelp" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                          <Image url="@../../../assets/textures/question_mark.png" />
+                       </image>
+                    </ImageView>
+                    <ImageView fx:id="DisplayedChar1" fitHeight="160.0" fitWidth="160.0" layoutX="3.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                          <Image url="@../../../assets/textures/characters/char1/char1yellow.png" />
+                       </image>
+                    </ImageView>
+                 </children>
+              </Pane>
+              <Button fx:id="myButtonRightOne" layoutX="230.0" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerOneRight" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
+                 <graphic>
+                    <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                          <Image url="@../../../assets/textures/mic/arrow.png" />
+                       </image>
+                    </ImageView>
+                 </graphic>
+              </Button>
+              <Button fx:id="myButtonLeftOne" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerOneLeft" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
+                 <graphic>
+                    <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                       <image>
+                          <Image url="@../../../assets/textures/mic/arrow.png" />
+                       </image>
+                       <rotationAxis>
+                          <Point3D y="1.0" />
+                       </rotationAxis>
+                    </ImageView>
+                 </graphic>
+              </Button>
+              <TextField fx:id="PlayerName1" alignment="CENTER" layoutX="53.0" layoutY="237.0" prefHeight="45.0" prefWidth="175.0" promptText="Gracz 1" style="-fx-background-color: rgb(228, 186, 160, 0.7); -fx-border-color: rgb(130,76,27); -fx-border-width: 5; -fx-background-radius: 15; -fx-border-radius: 10;">
+                 <font>
+                    <Font size="22.0" />
+                 </font>
+                 <styleClass>
+                    <String fx:value="font" />
+                    <String fx:value="playerName-textField" />
+                 </styleClass>
+              </TextField>
+           </children>
+        </Pane>
+        <Pane fx:id="Player2" layoutX="333.0" layoutY="248.0" prefHeight="282.0" prefWidth="280.0">
+           <children>
+              <Pane layoutX="58.0" layoutY="1.0" prefHeight="220.0" prefWidth="165.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 7; -fx-border-radius: 10; -fx-background-radius: 15;">
+                 <children>
+                    <ImageView fx:id="info2" fitHeight="25.0" fitWidth="25.0" layoutX="133.0" layoutY="10.0" onMouseEntered="#displayHelp2" onMouseExited="#hideHelp" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                          <Image url="@../../../assets/textures/question_mark.png" />
+                       </image>
+                    </ImageView>
+                    <ImageView fx:id="DisplayedChar2" fitHeight="160.0" fitWidth="160.0" layoutX="3.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                          <Image url="@../../../assets/textures/characters/char2/char2green.png" />
+                       </image>
+                    </ImageView>
+                 </children>
+              </Pane>
+              <Button fx:id="myButtonRightTwo" layoutX="230.0" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerTwoRight" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
+                 <graphic>
+                    <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                          <Image url="@../../../assets/textures/mic/arrow.png" />
+                       </image>
+                    </ImageView>
+                 </graphic>
+              </Button>
+              <Button fx:id="myButtonLeftTwo" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerTwoLeft" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
+                 <graphic>
+                    <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                       <image>
+                          <Image url="@../../../assets/textures/mic/arrow.png" />
+                       </image>
+                       <rotationAxis>
+                          <Point3D y="1.0" />
+                       </rotationAxis>
+                    </ImageView>
+                 </graphic>
+              </Button>
+              <TextField fx:id="PlayerName2" alignment="CENTER" layoutX="53.0" layoutY="237.0" prefHeight="45.0" prefWidth="175.0" promptText="Gracz 2" style="-fx-background-color: rgb(228, 186, 160, 0.7); -fx-border-color: rgb(130,76,27); -fx-border-width: 5; -fx-background-radius: 15; -fx-border-radius: 10;">
+                 <font>
+                    <Font size="22.0" />
+                 </font>
+                 <styleClass>
+                    <String fx:value="font" />
+                    <String fx:value="playerName-textField" />
+                 </styleClass>
+              </TextField>
+           </children>
+        </Pane>
+        <Pane fx:id="Player3" layoutX="656.0" layoutY="248.0" prefHeight="282.0" prefWidth="280.0">
+           <children>
+              <Pane layoutX="58.0" layoutY="1.0" prefHeight="220.0" prefWidth="165.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 7; -fx-border-radius: 10; -fx-background-radius: 15;">
+                 <children>
+                    <ImageView fx:id="info3" fitHeight="25.0" fitWidth="25.0" layoutX="133.0" layoutY="10.0" onMouseEntered="#displayHelp3" onMouseExited="#hideHelp" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                          <Image url="@../../../assets/textures/question_mark.png" />
+                       </image>
+                    </ImageView>
+                    <ImageView fx:id="DisplayedChar3" fitHeight="160.0" fitWidth="160.0" layoutX="3.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                          <Image url="@../../../assets/textures/characters/char3/char3blue.png" />
+                       </image>
+                    </ImageView>
+                 </children>
+              </Pane>
+              <Button fx:id="myButtonRightThree" layoutX="230.0" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerThreeRight" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
+                 <graphic>
+                    <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                          <Image url="@../../../assets/textures/mic/arrow.png" />
+                       </image>
+                    </ImageView>
+                 </graphic>
+              </Button>
+              <Button fx:id="myButtonLeftThree" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerThreeLeft" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
+                 <graphic>
+                    <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                       <image>
+                          <Image url="@../../../assets/textures/mic/arrow.png" />
+                       </image>
+                       <rotationAxis>
+                          <Point3D y="1.0" />
+                       </rotationAxis>
+                    </ImageView>
+                 </graphic>
+              </Button>
+              <TextField fx:id="PlayerName3" alignment="CENTER" layoutX="53.0" layoutY="237.0" prefHeight="45.0" prefWidth="175.0" promptText="Gracz 3" style="-fx-background-color: rgb(228, 186, 160, 0.7); -fx-border-color: rgb(130,76,27); -fx-border-width: 5; -fx-background-radius: 15; -fx-border-radius: 10;">
+                 <font>
+                    <Font size="22.0" />
+                 </font>
+                 <styleClass>
+                    <String fx:value="font" />
+                    <String fx:value="playerName-textField" />
+                 </styleClass>
+              </TextField>
+           </children>
+        </Pane>
+        <Pane fx:id="Player4" layoutX="971.0" layoutY="248.0" prefHeight="282.0" prefWidth="280.0">
+           <children>
+              <Pane layoutX="58.0" layoutY="1.0" prefHeight="220.0" prefWidth="165.0" style="-fx-border-width: 8;">
+                 <children>
+                    <ImageView fx:id="info4" fitHeight="25.0" fitWidth="25.0" layoutX="133.0" layoutY="10.0" onMouseEntered="#displayHelp4" onMouseExited="#hideHelp" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                          <Image url="@../../../assets/textures/question_mark.png" />
+                       </image>
+                    </ImageView>
+                    <ImageView fx:id="DisplayedChar4" fitHeight="160.0" fitWidth="160.0" layoutX="3.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                          <Image url="@../../../assets/textures/characters/char4/char4red.png" />
+                       </image>
+                    </ImageView>
+                 </children>
                <styleClass>
-                  <String fx:value="font" />
-                  <String fx:value="button" />
+                  <String fx:value="black_box" />
+                  <String fx:value="box_radius" />
                </styleClass>
-            </Button>
-            <Pane fx:id="Player1" layoutX="28.0" layoutY="248.0" prefHeight="282.0" prefWidth="280.0">
-               <children>
-                  <Pane layoutX="58.0" layoutY="1.0" prefHeight="220.0" prefWidth="165.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 7; -fx-border-radius: 10; -fx-background-radius: 15;">
-                     <children>
-                        <ImageView fx:id="info1" fitHeight="25.0" fitWidth="25.0" layoutX="133.0" layoutY="10.0" onMouseEntered="#displayHelp1" onMouseExited="#hideHelp" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../assets/textures/question_mark.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="DisplayedChar1" fitHeight="160.0" fitWidth="160.0" layoutX="3.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../assets/textures/characters/char1/char1yellow.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <Button fx:id="myButtonRightOne" layoutX="230.0" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerOneRight" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
-                     <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../assets/textures/mic/arrow.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="myButtonLeftOne" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerOneLeft" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
-                     <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-                           <image>
-                              <Image url="@../../../assets/textures/mic/arrow.png" />
-                           </image>
-                           <rotationAxis>
-                              <Point3D y="1.0" />
-                           </rotationAxis>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <TextField fx:id="PlayerName1" alignment="CENTER" layoutX="53.0" layoutY="237.0" prefHeight="45.0" prefWidth="175.0" promptText="Gracz 1" style="-fx-background-color: rgb(228, 186, 160, 0.7); -fx-border-color: rgb(130,76,27); -fx-border-width: 5; -fx-background-radius: 15; -fx-border-radius: 10;">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="font" />
-                        <String fx:value="playerName-textField" />
-                     </styleClass>
-                  </TextField>
-               </children>
-            </Pane>
-            <Pane fx:id="Player2" layoutX="333.0" layoutY="248.0" prefHeight="282.0" prefWidth="280.0">
-               <children>
-                  <Pane layoutX="58.0" layoutY="1.0" prefHeight="220.0" prefWidth="165.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 7; -fx-border-radius: 10; -fx-background-radius: 15;">
-                     <children>
-                        <ImageView fx:id="info2" fitHeight="25.0" fitWidth="25.0" layoutX="133.0" layoutY="10.0" onMouseEntered="#displayHelp2" onMouseExited="#hideHelp" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../assets/textures/question_mark.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="DisplayedChar2" fitHeight="160.0" fitWidth="160.0" layoutX="3.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../assets/textures/characters/char2/char2green.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <Button fx:id="myButtonRightTwo" layoutX="230.0" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerTwoRight" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
-                     <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../assets/textures/mic/arrow.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="myButtonLeftTwo" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerTwoLeft" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
-                     <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-                           <image>
-                              <Image url="@../../../assets/textures/mic/arrow.png" />
-                           </image>
-                           <rotationAxis>
-                              <Point3D y="1.0" />
-                           </rotationAxis>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <TextField fx:id="PlayerName2" alignment="CENTER" layoutX="53.0" layoutY="237.0" prefHeight="45.0" prefWidth="175.0" promptText="Gracz 2" style="-fx-background-color: rgb(228, 186, 160, 0.7); -fx-border-color: rgb(130,76,27); -fx-border-width: 5; -fx-background-radius: 15; -fx-border-radius: 10;">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="font" />
-                        <String fx:value="playerName-textField" />
-                     </styleClass>
-                  </TextField>
-               </children>
-            </Pane>
-            <Pane fx:id="Player3" layoutX="656.0" layoutY="248.0" prefHeight="282.0" prefWidth="280.0">
-               <children>
-                  <Pane layoutX="58.0" layoutY="1.0" prefHeight="220.0" prefWidth="165.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 7; -fx-border-radius: 10; -fx-background-radius: 15;">
-                     <children>
-                        <ImageView fx:id="info3" fitHeight="25.0" fitWidth="25.0" layoutX="133.0" layoutY="10.0" onMouseEntered="#displayHelp3" onMouseExited="#hideHelp" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../assets/textures/question_mark.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="DisplayedChar3" fitHeight="160.0" fitWidth="160.0" layoutX="3.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../assets/textures/characters/char3/char3blue.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <Button fx:id="myButtonRightThree" layoutX="230.0" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerThreeRight" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
-                     <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../assets/textures/mic/arrow.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="myButtonLeftThree" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerThreeLeft" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
-                     <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-                           <image>
-                              <Image url="@../../../assets/textures/mic/arrow.png" />
-                           </image>
-                           <rotationAxis>
-                              <Point3D y="1.0" />
-                           </rotationAxis>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <TextField fx:id="PlayerName3" alignment="CENTER" layoutX="53.0" layoutY="237.0" prefHeight="45.0" prefWidth="175.0" promptText="Gracz 3" style="-fx-background-color: rgb(228, 186, 160, 0.7); -fx-border-color: rgb(130,76,27); -fx-border-width: 5; -fx-background-radius: 15; -fx-border-radius: 10;">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="font" />
-                        <String fx:value="playerName-textField" />
-                     </styleClass>
-                  </TextField>
-               </children>
-            </Pane>
-            <Pane fx:id="Player4" layoutX="971.0" layoutY="248.0" prefHeight="282.0" prefWidth="280.0">
-               <children>
-                  <Pane layoutX="58.0" layoutY="1.0" prefHeight="220.0" prefWidth="165.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 7; -fx-border-radius: 10; -fx-background-radius: 15;">
-                     <children>
-                        <ImageView fx:id="info4" fitHeight="25.0" fitWidth="25.0" layoutX="133.0" layoutY="10.0" onMouseEntered="#displayHelp4" onMouseExited="#hideHelp" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../assets/textures/question_mark.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="DisplayedChar4" fitHeight="160.0" fitWidth="160.0" layoutX="3.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../assets/textures/characters/char4/char4red.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <Button fx:id="myButtonRightFour" layoutX="230.0" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerFourRight" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
-                     <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../assets/textures/mic/arrow.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="myButtonLeftFour" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerFourLeft" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
-                     <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-                           <image>
-                              <Image url="@../../../assets/textures/mic/arrow.png" />
-                           </image>
-                           <rotationAxis>
-                              <Point3D y="1.0" />
-                           </rotationAxis>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <TextField fx:id="PlayerName4" alignment="CENTER" layoutX="53.0" layoutY="237.0" prefHeight="45.0" prefWidth="175.0" promptText="Gracz 4" style="-fx-background-color: rgb(228, 186, 160, 0.7); -fx-border-color: rgb(130,76,27); -fx-border-width: 5; -fx-background-radius: 15; -fx-border-radius: 10;">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="font" />
-                        <String fx:value="playerName-textField" />
-                     </styleClass>
-                  </TextField>
-               </children>
-            </Pane>
-            <Pane layoutX="33.0" layoutY="625.0" prefHeight="50.0" prefWidth="160.0" style="-fx-background-color: rgb(228, 186, 160, 0.7); -fx-border-color: rgb(130,76,27); -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
-               <children>
-                  <Text fx:id="amountOfPlayersText" layoutX="10.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Liczba Graczy: 4" textAlignment="CENTER">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Text>
-               </children>
-            </Pane>
-            <Button fx:id="amountOfPlayersButton" layoutX="201.0" layoutY="625.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#changePlayersAmount" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: rgb(0,0,0, 0.35); -fx-border-color: gold; -fx-border-width: 4; -fx-border-radius: 10; -fx-background-radius: 15;">
-               <graphic>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../assets/textures/mic/arrow.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Pane fx:id="helpPane" layoutX="40.0" layoutY="300.0" mouseTransparent="true" opacity="0.0" prefHeight="125.0" prefWidth="250.0" style="-fx-background-color: rgb(228, 186, 160); -fx-border-color: rgb(130,76,27); -fx-border-width: 7; -fx-border-radius: 10; -fx-background-radius: 15;">
-               <children>
-                  <ImageView fx:id="helpCharImage" fitHeight="99.0" fitWidth="108.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../assets/textures/characters/char1/char1.png" />
-                     </image>
-                  </ImageView>
-                  <Text fx:id="helpHP" layoutX="113.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="-" textAlignment="CENTER" wrappingWidth="117.0">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="helpAttack" layoutX="113.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="-" textAlignment="CENTER" wrappingWidth="117.0">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="helpCoins" layoutX="113.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="-" textAlignment="CENTER" wrappingWidth="117.0">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="helpPassive" fill="AQUA" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" textAlignment="CENTER" wrappingWidth="249.48828125">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Text>
-               </children>
-            </Pane>
-          </children>
-         <stylesheets>
-            <URL value="@../../../assets/css/backgrounds.css" />
-            <URL value="@../../../assets/css/font.css" />
-         </stylesheets>
-      </AnchorPane>
-   </children>
+              </Pane>
+              <Button fx:id="myButtonRightFour" layoutX="230.0" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerFourRight" prefHeight="50.0" prefWidth="50.0" style="-fx-border-width: 4;">
+                 <graphic>
+                    <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                          <Image url="@../../../assets/textures/mic/arrow.png" />
+                       </image>
+                    </ImageView>
+                 </graphic>
+               <styleClass>
+                  <String fx:value="black_box" />
+                  <String fx:value="box_radius" />
+               </styleClass>
+              </Button>
+              <Button fx:id="myButtonLeftFour" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#displayImagePlayerFourLeft" prefHeight="50.0" prefWidth="50.0" style="-fx-border-width: 4;">
+                 <graphic>
+                    <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                       <image>
+                          <Image url="@../../../assets/textures/mic/arrow.png" />
+                       </image>
+                       <rotationAxis>
+                          <Point3D y="1.0" />
+                       </rotationAxis>
+                    </ImageView>
+                 </graphic>
+               <styleClass>
+                  <String fx:value="black_box" />
+                  <String fx:value="box_radius" />
+               </styleClass>
+              </Button>
+              <TextField fx:id="PlayerName4" alignment="CENTER" layoutX="53.0" layoutY="237.0" prefHeight="45.0" prefWidth="175.0" promptText="Gracz 4">
+                 <font>
+                    <Font size="22.0" />
+                 </font>
+                 <styleClass>
+                    <String fx:value="font" />
+                    <String fx:value="playerName-textField" />
+                  <String fx:value="brown_box" />
+                  <String fx:value="box_radius" />
+                 </styleClass>
+              </TextField>
+           </children>
+        </Pane>
+        <Pane layoutX="33.0" layoutY="625.0" prefHeight="50.0" prefWidth="160.0">
+           <children>
+              <Text fx:id="amountOfPlayersText" layoutX="10.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Liczba Graczy: 4" textAlignment="CENTER">
+                 <font>
+                    <Font size="24.0" />
+                 </font>
+              </Text>
+           </children>
+         <styleClass>
+            <String fx:value="brown_box" />
+            <String fx:value="box_radius" />
+         </styleClass>
+        </Pane>
+        <Button fx:id="amountOfPlayersButton" layoutX="201.0" layoutY="625.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#changePlayersAmount" prefHeight="50.0" prefWidth="50.0" style="-fx-border-width: 4;">
+           <graphic>
+              <ImageView fitHeight="35.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                    <Image url="@../../../assets/textures/mic/arrow.png" />
+                 </image>
+              </ImageView>
+           </graphic>
+         <styleClass>
+            <String fx:value="black_box" />
+            <String fx:value="box_radius" />
+         </styleClass>
+        </Button>
+        <Pane fx:id="helpPane" layoutX="40.0" layoutY="300.0" mouseTransparent="true" opacity="0.0" prefHeight="125.0" prefWidth="250.0" style="-fx-border-width: 7; -fx-background-color: rgb(228, 186, 160);;">
+           <children>
+              <ImageView fx:id="helpCharImage" fitHeight="99.0" fitWidth="108.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                    <Image url="@../../../assets/textures/characters/char1/char1.png" />
+                 </image>
+              </ImageView>
+              <Text fx:id="helpHP" layoutX="113.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="-" textAlignment="CENTER" wrappingWidth="117.0">
+                 <font>
+                    <Font size="24.0" />
+                 </font>
+              </Text>
+              <Text fx:id="helpAttack" layoutX="113.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="-" textAlignment="CENTER" wrappingWidth="117.0">
+                 <font>
+                    <Font size="24.0" />
+                 </font>
+              </Text>
+              <Text fx:id="helpCoins" layoutX="113.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="-" textAlignment="CENTER" wrappingWidth="117.0">
+                 <font>
+                    <Font size="24.0" />
+                 </font>
+              </Text>
+              <Text fx:id="helpPassive" fill="AQUA" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" textAlignment="CENTER" wrappingWidth="249.48828125">
+                 <font>
+                    <Font size="24.0" />
+                 </font>
+              </Text>
+           </children>
+         <styleClass>
+            <String fx:value="brown_box" />
+            <String fx:value="box_radius" />
+         </styleClass>
+        </Pane>
+      </children>
+     <stylesheets>
+        <URL value="@../../../assets/css/backgrounds.css" />
+        <URL value="@../../../assets/css/font.css" />
+      <URL value="@../../../assets/css/elements.css" />
+     </stylesheets>
 </AnchorPane>

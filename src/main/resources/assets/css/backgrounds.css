@@ -1,21 +1,5 @@
 .menu {
-    -fx-background-image:url("../textures/menu/Menu.png");
-    -fx-background-size: contain;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: 100% 100%;
-}
-
-.instruction {
-    -fx-background-image:url("../textures/menu/Instruction.png");
-    -fx-background-size: contain;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: 100% 100%;
-}
-
-.authors {
-    -fx-background-image:url("../textures/menu/Authors.png");
+    -fx-background-image:url("../textures/menu/menu_background.png");
     -fx-background-size: contain;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;

@@ -1,44 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: rgba(57, 119, 97, 0.76);" styleClass="authors" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.castle.zamek_conwy.MenuManager">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: rgb(44,44,44);" styleClass="background" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.castle.zamek_conwy.MenuManager">
    <stylesheets>
       <URL value="@../../../assets/css/backgrounds.css" />
+      <URL value="@../../../assets/css/font.css" />
+      <URL value="@../../../assets/css/elements.css" />
    </stylesheets>
    <children>
-      <Button alignment="CENTER" layoutX="551.0" layoutY="655.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="37.0" prefWidth="178.0" style="-fx-background-color: rgb(228, 186, 160);" text="Powrót" textAlignment="CENTER">
+      <Pane layoutX="415.0" layoutY="50.0" prefHeight="150.0" prefWidth="450.0" style="-fx-border-width: 8;">
+         <children>
+            <Text fx:id="menuText" fill="WHITE" layoutX="71.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Autorzy" textAlignment="CENTER" wrappingWidth="308.775390625">
+               <font>
+                  <Font size="104.0" />
+               </font>
+            </Text>
+         </children>
+         <styleClass>
+            <String fx:value="brown_box" />
+            <String fx:value="box_radius" />
+         </styleClass>
+      </Pane>
+      <Pane layoutX="458.0" layoutY="225.0" prefHeight="75.0" prefWidth="365.0" style="-fx-border-width: 7;">
+         <styleClass>
+            <String fx:value="black_box" />
+            <String fx:value="box_radius" />
+         </styleClass>
+         <children>
+            <Text fill="WHITE" layoutX="55.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Miłosz Malewicz">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="458.0" layoutY="325.0" prefHeight="75.0" prefWidth="365.0" style="-fx-border-width: 7;">
+         <styleClass>
+            <String fx:value="black_box" />
+            <String fx:value="box_radius" />
+         </styleClass>
+         <children>
+            <Text fill="WHITE" layoutX="66.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Michał Pryczek">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="458.0" layoutY="425.0" prefHeight="75.0" prefWidth="365.0" style="-fx-border-width: 7;">
+         <styleClass>
+            <String fx:value="black_box" />
+            <String fx:value="box_radius" />
+         </styleClass>
+         <children>
+            <Text fill="WHITE" layoutX="60.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Rafał Owczarek">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="458.0" layoutY="525.0" prefHeight="75.0" prefWidth="365.0" style="-fx-border-width: 7;">
+         <styleClass>
+            <String fx:value="black_box" />
+            <String fx:value="box_radius" />
+         </styleClass>
+         <children>
+            <Text fill="WHITE" layoutX="105.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Kuba Góra">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="555.0" layoutY="625.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="50.0" prefWidth="170.0" text="Powrót">
          <font>
-            <Font size="19.0" />
-         </font></Button>
-      <Text fill="WHITE" layoutX="543.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rafał Owczarek">
-         <font>
-            <Font size="30.0" />
+            <Font size="24.0" />
          </font>
-      </Text>
-      <Text fill="WHITE" layoutX="563.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jakub Góra" wrappingWidth="163.568359375">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="542.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Michał Pryczek" wrappingWidth="196.5087890625">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="534.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Miłosz Malewicz">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="518.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autorzy" wrappingWidth="256.45751953125">
-         <font>
-            <Font size="75.0" />
-         </font>
-      </Text>
+         <styleClass>
+            <String fx:value="font" />
+            <String fx:value="brown_box" />
+            <String fx:value="box_radius" />
+         </styleClass>
+      </Button>
    </children>
 </AnchorPane>

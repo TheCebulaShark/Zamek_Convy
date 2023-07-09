@@ -1,0 +1,15 @@
+.black_box {
+    -fx-background-color:  rgb(0,0,0, 0.35);
+    -fx-border-color:  gold;
+}
+
+.brown_box {
+    -fx-background-color:  rgb(228, 186, 160, 0.7);
+    -fx-border-color:  rgb(130,76,27);
+}
+
+.box_radius {
+    -fx-border-radius: 10;
+    -fx-background-radius: 15;
+    -fx-border-width: 5;
+}

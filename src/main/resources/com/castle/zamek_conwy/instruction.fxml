@@ -1,29 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: rgba(57, 119, 97, 0.76);" styleClass="instruction" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.castle.zamek_conwy.MenuManager">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: rgb(44,44,44);" styleClass="background" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.castle.zamek_conwy.MenuManager">
    <stylesheets>
       <URL value="@../../../assets/css/backgrounds.css" />
+      <URL value="@../../../assets/css/font.css" />
+      <URL value="@../../../assets/css/elements.css" />
    </stylesheets>
    <children>
-      <TextArea editable="false" layoutX="60.0" layoutY="219.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="1160.0" text="Tury graczy następują zgodnie z ruchem wskazówek zegara. Podczas nich rzuca się jedną kością, a wynik rzutu określa, o ile pól na mapie przemieści się figurka naszego bohatera.&#10;Zakończywszy ruch, gracz wykonuje polecenia z pola, na którym się zatrzymał. Najczęściej będzie to dociągnięcie karty.&#10;Wydarzenia mogą być przeróżne: możemy napotkać potwory, wędrowne karawany, sprzymierzeńców, przedmioty. Karta przygody zawiera instrukcję dotyczącą wykonania opisanej akcji.&#10;Jeśli napotkamy przeciwnika, to dochodzi do konfrontacji, na skutek której obie strony rzucają kośćmi. Do wyniku rzutu dodajemy wartość swojej siły. Przed rzutem gracz może wspomóc się bronią lub innym przedmiotem dodającym bonusy do współczynników walki. Uzyskaną w ten sposób, poprzez zsumowanie poszczególnych aspektów, wartość, porównujemy z analogicznie osiągniętymi wynikami przeciwnika. Zwycięża lepszy. Po walce gracze zatrzymują karty pokonanych potworów. Mogą ich później użyć, aby zwiększyć swoją siłę, kiedy uzbierają karty o łącznej wartości 7 punktów siły.&#10;Po rozpatrzeniu przygody tura danego gracza dobiega końca i następny śmiałek wkracza do akcji. W ten oto sposób przebiegają kolejne rundy.&#10;Celem gry jest zabicie wszystkich innych graczy." wrapText="true" AnchorPane.bottomAnchor="59.0">
+      <Pane layoutX="415.0" layoutY="50.0" prefHeight="150.0" prefWidth="450.0" style="-fx-border-width: 8;">
+         <children>
+            <Text fx:id="menuText" fill="WHITE" layoutX="10.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Instrukcja" textAlignment="CENTER" wrappingWidth="430.775390625">
+               <font>
+                  <Font size="104.0" />
+               </font>
+            </Text>
+         </children>
+         <styleClass>
+            <String fx:value="brown_box" />
+            <String fx:value="box_radius" />
+         </styleClass>
+      </Pane>
+      <TextArea editable="false" layoutX="60.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1160.0" style="-fx-background-color: white; -fx-font-size: 32;" text="Tury graczy następują zgodnie z ruchem wskazówek zegara. Podczas nich rzuca się jedną kością, a wynik rzutu określa, o ile pól na mapie przemieści się figurka naszego bohatera.&#10;Zakończywszy ruch, gracz wykonuje polecenia z pola, na którym się zatrzymał. Najczęściej będzie to dociągnięcie karty.&#10;Wydarzenia mogą być przeróżne: możemy napotkać potwory, wędrowne karawany, sprzymierzeńców, przedmioty. Karta przygody zawiera instrukcję dotyczącą wykonania opisanej akcji.&#10;Jeśli napotkamy przeciwnika, to dochodzi do konfrontacji, na skutek której obie strony rzucają kośćmi. Do wyniku rzutu dodajemy wartość swojej siły. Przed rzutem gracz może wspomóc się bronią lub innym przedmiotem dodającym bonusy do współczynników walki. Uzyskaną w ten sposób, poprzez zsumowanie poszczególnych aspektów, wartość, porównujemy z analogicznie osiągniętymi wynikami przeciwnika. Zwycięża lepszy. Po walce gracze zatrzymują karty pokonanych potworów. Mogą ich później użyć, aby zwiększyć swoją siłę, kiedy uzbierają karty o łącznej wartości 7 punktów siły.&#10;Po rozpatrzeniu przygody tura danego gracza dobiega końca i następny śmiałek wkracza do akcji. W ten oto sposób przebiegają kolejne rundy.&#10;Celem gry jest zabicie wszystkich innych graczy." wrapText="true" AnchorPane.bottomAnchor="52.0">
+         <font>
+            <Font size="32.0" />
+         </font>
+         <styleClass>
+            <String fx:value="brown_box" />
+            <String fx:value="box_radius" />
+            <String fx:value="font" />
+         </styleClass></TextArea>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1050.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="50.0" prefWidth="170.0" text="Powrót">
          <font>
             <Font size="24.0" />
-         </font></TextArea>
-      <Button layoutX="1044.0" layoutY="98.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="38.0" prefWidth="177.0" style="-fx-background-color: rgb(228, 186, 160);" text="Powrót">
-         <font>
-            <Font size="19.0" />
-         </font></Button>
-      <Text fill="WHITE" layoutX="482.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instrukcja" wrappingWidth="316.40625">
-         <font>
-            <Font size="75.0" />
          </font>
-      </Text>
+         <styleClass>
+            <String fx:value="font" />
+            <String fx:value="brown_box" />
+            <String fx:value="box_radius" />
+         </styleClass>
+      </Button>
    </children>
 </AnchorPane>
