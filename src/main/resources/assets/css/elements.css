@@ -13,3 +13,18 @@
     -fx-background-radius: 15;
     -fx-border-width: 5;
 }
+
+.white_box {
+    -fx-background-color: white;
+    -fx-border-color: yellow;
+    -fx-border-radius: 5;
+    -fx-background-radius: 10;
+    -fx-border-width: 4;
+}
+
+.small_white_box {
+    -fx-background-color: white;
+    -fx-border-radius: 5;
+    -fx-background-radius: 10;
+    -fx-border-width: 2;
+}

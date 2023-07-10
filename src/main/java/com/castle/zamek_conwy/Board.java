@@ -84,17 +84,21 @@ public class Board {
         setCharacterImageView(0, selectedChar1);
         player1.setImage(playerOne[selectedChar1]);
         player1.setName("Gracz 1");
+        PawnChar1.setVisible(true);
 
         player2 = new Player(selectedChar2 + 1, Character.Color.LIMEGREEN, false, 0);
         setCharacterImageView(1, selectedChar2);
         player2.setImage(playerTwo[selectedChar2]);
         player2.setName("Gracz 2");
+        PawnChar2.setVisible(true);
 
         if (playersAmount > 2) {
             player3 = new Player(selectedChar3 + 1, Character.Color.DEEPSKYBLUE, false, 0);
+            PawnChar3.setVisible(true);
         }
         else {
-            player3 = new Player(1, Character.Color.DEEPSKYBLUE, true, 0);
+            player3 = new Player(1, Character.Color.DEEPSKYBLUE, true, -1);
+            Player3.setVisible(false);
         }
         setCharacterImageView(2, selectedChar3);
         player3.setImage(playerThree[selectedChar3]);
@@ -103,9 +107,11 @@ public class Board {
 
         if (playersAmount > 3) {
             player4 = new Player(selectedChar4 + 1, Character.Color.RED, false, 0);
+            PawnChar4.setVisible(true);
         }
         else {
-            player4 = new Player(1, Character.Color.DEEPSKYBLUE, true, 0);
+            player4 = new Player(1, Character.Color.RED, true, -1);
+            Player4.setVisible(false);
         }
         setCharacterImageView(3, selectedChar4);
         player4.setImage(playerFour[selectedChar4]);
@@ -260,6 +266,10 @@ public class Board {
     private Text Attack4;
     @FXML
     private Text Coins4;
+    @FXML
+    private Pane Player3;
+    @FXML
+    private Pane Player4;
 
     boolean isGameOver = false;
     private boolean isDicePressed = false;

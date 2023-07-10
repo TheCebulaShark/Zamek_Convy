@@ -12,10 +12,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" scaleShape="false" style="-fx-background-color: rgb(44,44,44);" styleClass="board" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.castle.zamek_conwy.Board">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" scaleShape="false" style="-fx-background-color: rgb(44,44,44);" styleClass="background" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.castle.zamek_conwy.Board">
    <stylesheets>
       <URL value="@../../../assets/css/backgrounds.css" />
       <URL value="@../../../assets/css/font.css" />
+      <URL value="@../../../assets/css/elements.css" />
    </stylesheets>
    <center>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="800.0" BorderPane.alignment="CENTER">
@@ -36,22 +37,22 @@
                   <Image url="@../../../assets/textures/board/BoardCenter.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="PawnChar1" fitHeight="40.0" fitWidth="40.0" layoutX="385.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="PawnChar1" fitHeight="40.0" fitWidth="40.0" layoutX="385.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../../assets/textures/characters/char1/char1yellow.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="PawnChar2" fitHeight="40.0" fitWidth="40.0" layoutX="722.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="PawnChar2" fitHeight="40.0" fitWidth="40.0" layoutX="722.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../../assets/textures/characters/char2/char2green.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="PawnChar3" fitHeight="40.0" fitWidth="40.0" layoutX="385.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="PawnChar3" fitHeight="40.0" fitWidth="40.0" layoutX="385.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../../assets/textures/characters/char3/char3blue.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="PawnChar4" fitHeight="40.0" fitWidth="40.0" layoutX="37.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="PawnChar4" fitHeight="40.0" fitWidth="40.0" layoutX="37.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../../assets/textures/characters/char4/char4red.png" />
                </image>
@@ -81,9 +82,9 @@
                <image>
                   <Image url="@../../../assets/textures/items/armor4.png" />
                </image></ImageView>
-            <Text fx:id="InventoryTrophies" fill="#31bceb" layoutX="541.0" layoutY="678.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="35.13671875">
+            <Text fx:id="InventoryTrophies" fill="#31bceb" layoutX="536.0" layoutY="678.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0" textAlignment="CENTER" wrappingWidth="35.13671875">
                <font>
-                  <Font size="42.0" />
+                  <Font size="56.0" />
                </font>
             </Text>
             <AnchorPane layoutY="60.0" prefHeight="537.0" prefWidth="800.0">
@@ -188,148 +189,213 @@
    <left>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="170.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="150.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
-               <image>
-                  <Image url="@../../../assets/textures/board/PlayerBox.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="150.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
-               <image>
-                  <Image url="@../../../assets/textures/board/PlayerBox.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="150.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
-               <image>
-                  <Image url="@../../../assets/textures/board/PlayerBox.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="150.0" layoutY="577.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
-               <image>
-                  <Image url="@../../../assets/textures/board/PlayerBox.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="CharDisplay1" fitHeight="80.0" fitWidth="80.0" layoutX="37.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../assets/textures/characters/char1/char1yellow.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="CharDisplay2" fitHeight="80.0" fitWidth="80.0" layoutX="37.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../assets/textures/characters/char2/char2green.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="CharDisplay3" fitHeight="80.0" fitWidth="80.0" layoutX="37.0" layoutY="429.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../assets/textures/characters/char3/char3blue.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="CharDisplay4" fitHeight="80.0" fitWidth="80.0" layoutX="37.0" layoutY="596.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../assets/textures/characters/char4/char4red.png" />
-               </image>
-            </ImageView>
-            <Circle fill="#fdff1f" layoutX="14.0" layoutY="55.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="20.0" />
-            <Circle fill="#4bff21" layoutX="14.0" layoutY="222.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="20.0" />
-            <Circle fill="#21beff" layoutX="14.0" layoutY="390.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="20.0" />
-            <Circle fill="#ff1b1b" layoutX="14.0" layoutY="557.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="20.0" />
-            <Text fill="WHITE" layoutX="82.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz 1" wrappingWidth="83.63671875" AnchorPane.leftAnchor="60.0">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="28.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz 2" wrappingWidth="83.63671875" AnchorPane.leftAnchor="60.0">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="26.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz 3" wrappingWidth="83.63671875" AnchorPane.leftAnchor="60.0">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="60.0" layoutY="565.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz 4" wrappingWidth="83.63671875" AnchorPane.leftAnchor="60.0">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Text>
-            <Text fx:id="Health1" fill="#4bff21" layoutX="144.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Text>
-            <Text fx:id="Attack1" fill="#ff1b1b" layoutX="144.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Text>
-            <Text fx:id="Coins1" fill="#ffd721" layoutX="144.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Text>
-            <Text fx:id="Health2" fill="#4bff21" layoutX="144.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Text>
-            <Text fx:id="Attack2" fill="#ff1b1b" layoutX="144.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Text>
-            <Text fx:id="Coins2" fill="#ffd721" layoutX="144.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Text>
-            <Text fx:id="Health3" fill="#4bff21" layoutX="144.0" layoutY="442.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Text>
-            <Text fx:id="Attack3" fill="#ff1b1b" layoutX="144.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Text>
-            <Text fx:id="Coins3" fill="#ffd721" layoutX="144.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Text>
-            <Text fx:id="Health4" fill="#4bff21" layoutX="144.0" layoutY="609.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Text>
-            <Text fx:id="Attack4" fill="#ff1b1b" layoutX="144.0" layoutY="648.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Text>
-            <Text fx:id="Coins4" fill="#ffd721" layoutX="144.0" layoutY="687.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="25.0">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Text>
+            <Pane fx:id="Player1" layoutX="32.0" layoutY="32.0" prefHeight="140.0" prefWidth="140.0">
+               <children>
+                  <Pane layoutY="33.0" prefHeight="105.0" prefWidth="105.0" styleClass="white_box">
+                     <children>
+                        <ImageView fx:id="CharDisplay1" fitHeight="80.0" fitWidth="80.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/textures/characters/char1/char1yellow.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Circle fill="#fdff1f" layoutX="14.0" layoutY="14.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Text fx:id="PlayerNameText1" fill="WHITE" layoutX="31.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Gracz 1" textAlignment="CENTER" wrappingWidth="95.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Pane layoutX="105.0" layoutY="33.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: lime;" styleClass="small_white_box">
+                     <children>
+                        <Text fx:id="Health1" fill="#4bff21" layoutX="6.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0" textAlignment="CENTER" wrappingWidth="25.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="105.0" layoutY="68.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: red;" styleClass="small_white_box">
+                     <children>
+                        <Text fx:id="Attack1" fill="#ff1b1b" layoutX="6.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0" textAlignment="CENTER" wrappingWidth="25.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="105.0" layoutY="103.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: gold;" styleClass="small_white_box">
+                     <children>
+                        <Text fx:id="Coins1" fill="#ffd721" layoutX="6.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0" textAlignment="CENTER" wrappingWidth="25.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane fx:id="Player2" layoutX="32.0" layoutY="204.0" prefHeight="140.0" prefWidth="140.0">
+               <children>
+                  <Pane layoutY="33.0" prefHeight="105.0" prefWidth="105.0" styleClass="white_box">
+                     <children>
+                        <ImageView fx:id="CharDisplay2" fitHeight="80.0" fitWidth="80.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/textures/characters/char2/char2green.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Circle fill="#4bff21" layoutX="14.0" layoutY="14.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Text fx:id="PlayerNameText2" fill="WHITE" layoutX="31.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Gracz 2" textAlignment="CENTER" wrappingWidth="95.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Pane layoutX="105.0" layoutY="33.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: lime;" styleClass="small_white_box">
+                     <children>
+                        <Text fx:id="Health2" fill="#4bff21" layoutX="6.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0" textAlignment="CENTER" wrappingWidth="25.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="105.0" layoutY="68.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: red;" styleClass="small_white_box">
+                     <children>
+                        <Text fx:id="Attack2" fill="#ff1b1b" layoutX="6.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0" textAlignment="CENTER" wrappingWidth="25.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="105.0" layoutY="103.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: gold;" styleClass="small_white_box">
+                     <children>
+                        <Text fx:id="Coins2" fill="#ffd721" layoutX="6.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0" textAlignment="CENTER" wrappingWidth="25.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane fx:id="Player3" layoutX="32.0" layoutY="376.0" prefHeight="140.0" prefWidth="140.0">
+               <children>
+                  <Pane layoutY="33.0" prefHeight="105.0" prefWidth="105.0" styleClass="white_box">
+                     <children>
+                        <ImageView fx:id="CharDisplay3" fitHeight="80.0" fitWidth="80.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/textures/characters/char3/char3blue.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Circle fill="#21beff" layoutX="14.0" layoutY="14.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Text fx:id="PlayerNameText3" fill="WHITE" layoutX="31.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Gracz 3" textAlignment="CENTER" wrappingWidth="95.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Pane layoutX="105.0" layoutY="33.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: lime;" styleClass="small_white_box">
+                     <children>
+                        <Text fx:id="Health3" fill="#4bff21" layoutX="6.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0" textAlignment="CENTER" wrappingWidth="25.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="105.0" layoutY="68.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: red;" styleClass="small_white_box">
+                     <children>
+                        <Text fx:id="Attack3" fill="#ff1b1b" layoutX="6.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0" textAlignment="CENTER" wrappingWidth="25.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="105.0" layoutY="103.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: gold;" styleClass="small_white_box">
+                     <children>
+                        <Text fx:id="Coins3" fill="#ffd721" layoutX="6.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0" textAlignment="CENTER" wrappingWidth="25.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane fx:id="Player4" layoutX="30.0" layoutY="548.0" prefHeight="140.0" prefWidth="140.0">
+               <children>
+                  <Pane layoutY="33.0" prefHeight="105.0" prefWidth="105.0" styleClass="white_box">
+                     <children>
+                        <ImageView fx:id="CharDisplay4" fitHeight="80.0" fitWidth="80.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/textures/characters/char4/char4red.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Circle fill="#ff1b1b" layoutX="14.0" layoutY="14.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Text fx:id="PlayerNameText4" fill="WHITE" layoutX="31.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Gracz 4" textAlignment="CENTER" wrappingWidth="95.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Pane layoutX="105.0" layoutY="33.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: lime;" styleClass="small_white_box">
+                     <children>
+                        <Text fx:id="Health4" fill="#4bff21" layoutX="6.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0" textAlignment="CENTER" wrappingWidth="25.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="105.0" layoutY="68.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: red;" styleClass="small_white_box">
+                     <children>
+                        <Text fx:id="Attack4" fill="#ff1b1b" layoutX="6.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0" textAlignment="CENTER" wrappingWidth="25.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="105.0" layoutY="103.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: gold;" styleClass="small_white_box">
+                     <children>
+                        <Text fx:id="Coins4" fill="#ffd721" layoutX="6.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0" textAlignment="CENTER" wrappingWidth="25.0">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
    </left>
    <right>
       <AnchorPane prefHeight="720.0" prefWidth="172.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="ThrowDiceButton" disable="true" layoutY="136.0" mnemonicParsing="false" onAction="#handleButtonDice" prefHeight="37.0" prefWidth="159.0" style="-fx-background-color: rgb(228, 186, 160);" text="Rzuć kością" textFill="WHITE">
+            <Button fx:id="ThrowDiceButton" disable="true" layoutX="1.0" layoutY="106.0" mnemonicParsing="false" onAction="#handleButtonDice" prefHeight="37.0" prefWidth="159.0" text="Rzuć kością" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
-               </font></Button>
-            <ImageView fx:id="diceImage" fitHeight="80.0" fitWidth="80.0" layoutX="40.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+               </font>
+               <styleClass>
+                  <String fx:value="font" />
+                  <String fx:value="brown_box" />
+                  <String fx:value="box_radius" />
+               </styleClass></Button>
+            <ImageView fx:id="diceImage" fitHeight="80.0" fitWidth="80.0" layoutX="41.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../assets/textures/dice/dice3.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="167.0" fitWidth="138.0" layoutX="23.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="167.0" fitWidth="138.0" layoutX="28.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../assets/textures/card/CardFront.png" />
+                  <Image url="@../../../assets/textures/card/CardBack.png" />
                </image>
             </ImageView>
          </children></AnchorPane>
