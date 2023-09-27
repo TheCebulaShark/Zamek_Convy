@@ -131,7 +131,7 @@
                   <Image url="@../../../assets/textures/items/coin.png" />
                </image>
             </ImageView>
-            <Text fx:id="priceText2" disable="true" layoutX="408.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" wrappingWidth="28.418886822284115">
+            <Text fx:id="priceText2" disable="true" layoutX="408.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 52;" styleClass="font" text="0" visible="false" wrappingWidth="28.418886822284115">
                <font>
                   <Font size="34.0" />
                </font>
@@ -146,7 +146,7 @@
                   <Image url="@../../../assets/textures/items/armor1.png" />
                </image>
             </ImageView>
-            <Text fx:id="priceText1" disable="true" layoutX="210.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" wrappingWidth="28.418886822284115">
+            <Text fx:id="priceText1" disable="true" layoutX="210.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 52;" styleClass="font" text="0" visible="false" wrappingWidth="28.418886822284115">
                <font>
                   <Font size="34.0" />
                </font>
@@ -161,7 +161,7 @@
                   <Image url="@../../../assets/textures/items/armor1.png" />
                </image>
             </ImageView>
-            <Text fx:id="priceText3" disable="true" layoutX="614.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" wrappingWidth="28.418886822284115">
+            <Text fx:id="priceText3" disable="true" layoutX="614.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 52;" styleClass="font" text="0" visible="false" wrappingWidth="28.418886822284115">
                <font>
                   <Font size="34.0" />
                </font>
@@ -169,10 +169,15 @@
             <Button fx:id="buyItem2" disable="true" layoutX="326.0" layoutY="303.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buyItemTwo" opacity="0.0" prefHeight="130.0" prefWidth="130.0" text="Button" visible="false" />
             <Button fx:id="buyItem1" disable="true" layoutX="137.0" layoutY="306.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buyItemOne" opacity="0.0" prefHeight="130.0" prefWidth="130.0" text="Button" visible="false" />
             <Button fx:id="buyItem3" disable="true" layoutX="534.0" layoutY="302.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buyItemThree" opacity="0.0" prefHeight="130.0" prefWidth="130.0" text="Button" visible="false" />
-            <Button fx:id="exitShop" disable="true" layoutX="359.0" layoutY="460.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setExitShop" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: rgb(222,186,160); -fx-border-color: rgb(130,76,26); -fx-border-width: 3;" text="Wyjście" textFill="WHITE" visible="false">
+            <Button fx:id="exitShop" disable="true" layoutX="342.0" layoutY="465.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setExitShop" prefHeight="54.0" prefWidth="127.0" style="-fx-background-color: rgb(228, 186, 160);" text="Wyjście" textFill="WHITE" visible="false">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <styleClass>
+                  <String fx:value="font" />
+                  <String fx:value="brown_box" />
+                  <String fx:value="box_radius" />
+               </styleClass>
             </Button>
             <Button fx:id="StartGameplayButton" layoutX="200.0" layoutY="265.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonStartGameplay" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: rgb(228, 186, 160); -fx-border-color: rgb(130,76,27); -fx-border-width: 6; -fx-border-radius: 10; -fx-background-radius: 15;" text="Rozpocznij rozgrywkę" textFill="WHITE">
                <font>
@@ -203,7 +208,7 @@
                   <Circle fill="#fdff1f" layoutX="14.0" layoutY="14.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                   <Text fx:id="PlayerNameText1" fill="WHITE" layoutX="31.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Gracz 1" textAlignment="CENTER" wrappingWidth="95.0">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="20.0" />
                      </font>
                   </Text>
                   <Pane layoutX="105.0" layoutY="33.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: lime;" styleClass="small_white_box">
@@ -249,7 +254,7 @@
                   <Circle fill="#4bff21" layoutX="14.0" layoutY="14.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                   <Text fx:id="PlayerNameText2" fill="WHITE" layoutX="31.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Gracz 2" textAlignment="CENTER" wrappingWidth="95.0">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="20.0" />
                      </font>
                   </Text>
                   <Pane layoutX="105.0" layoutY="33.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: lime;" styleClass="small_white_box">
@@ -295,7 +300,7 @@
                   <Circle fill="#21beff" layoutX="14.0" layoutY="14.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                   <Text fx:id="PlayerNameText3" fill="WHITE" layoutX="31.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Gracz 3" textAlignment="CENTER" wrappingWidth="95.0">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="20.0" />
                      </font>
                   </Text>
                   <Pane layoutX="105.0" layoutY="33.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: lime;" styleClass="small_white_box">
@@ -341,7 +346,7 @@
                   <Circle fill="#ff1b1b" layoutX="14.0" layoutY="14.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                   <Text fx:id="PlayerNameText4" fill="WHITE" layoutX="31.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Gracz 4" textAlignment="CENTER" wrappingWidth="95.0">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="20.0" />
                      </font>
                   </Text>
                   <Pane layoutX="105.0" layoutY="33.0" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: lime;" styleClass="small_white_box">

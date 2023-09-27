@@ -37,6 +37,11 @@ public class Board {
     private int selectedChar3;
     private int selectedChar4;
 
+    private String name1;
+    private String name2;
+    private String name3;
+    private String name4;
+
     private Player player1;
     private Player player2;
     private Player player3;
@@ -47,13 +52,7 @@ public class Board {
     public Shop shop = new Shop();
 
     public Scene scene;
-    public Board() {
-        this.selectedChar1 = 0;
-        this.selectedChar2 = 1;
-        this.selectedChar3 = 2;
-        this.selectedChar4 = 3;
-    }
-    public void setSelectedChars(int selectedChar1, int selectedChar2, int selectedChar3, int selectedChar4) {
+    public void getSelectedChars(int selectedChar1, int selectedChar2, int selectedChar3, int selectedChar4) {
         this.selectedChar1 = selectedChar1;
         this.selectedChar2 = selectedChar2;
         this.selectedChar3 = selectedChar3;
@@ -62,6 +61,57 @@ public class Board {
 
     public void getAmountOfPlayers(int playersAmount) {
         this.playersAmount = playersAmount;
+    }
+
+    public void getPlayersNames(String name1, String name2,String name3, String name4) {
+        if (name1.equals("")) {
+            this.name1 = "Gracz 1";
+        }
+        else {
+            if (name1.length() > 8) {
+                this.name1 = name1.substring(0, 8);
+            }
+            else {
+                this.name1 = name1;
+            }
+        }
+        if (name2.equals("")) {
+            this.name2 = "Gracz 2";
+        }
+        else {
+            if (name2.length() > 8) {
+                this.name2 = name2.substring(0, 8);
+            }
+            else {
+                this.name2 = name2;
+            }
+        }
+        if (playersAmount > 2) {
+            if (name3.equals("")) {
+                this.name3 = "Gracz 3";
+            }
+            else {
+                if (name3.length() > 8) {
+                    this.name3 = name3.substring(0, 8);
+                }
+                else {
+                    this.name3 = name3;
+                }
+            }
+        }
+        if (playersAmount > 3) {
+            if (name4.equals("")) {
+                this.name4 = "Gracz 4";
+            }
+            else {
+                if (name4.length() > 8) {
+                    this.name4 = name4.substring(0, 8);
+                }
+                else {
+                    this.name4 = name4;
+                }
+            }
+        }
     }
     public void setScene(Scene scene) {
         this.scene = scene;
@@ -73,6 +123,7 @@ public class Board {
         fieldsInit();
         shopInit();
         playersInit();
+        setPlayersInitPos();
         displayStats();
         displayPlayerInventory();
         playersAlive = playersAmount;
@@ -80,43 +131,87 @@ public class Board {
 
 
     public void playersInit() {
-        player1 = new Player(selectedChar1 + 1, Character.Color.YELLOW, false, 0);
+        player1 = new Player(selectedChar1 + 1, Character.Color.YELLOW, false, 0, name1);
         setCharacterImageView(0, selectedChar1);
         player1.setImage(playerOne[selectedChar1]);
-        player1.setName("Gracz 1");
         PawnChar1.setVisible(true);
+        PlayerNameText1.setText(name1);
 
-        player2 = new Player(selectedChar2 + 1, Character.Color.LIMEGREEN, false, 0);
+        player2 = new Player(selectedChar2 + 1, Character.Color.LIMEGREEN, false, 0, name2);
         setCharacterImageView(1, selectedChar2);
         player2.setImage(playerTwo[selectedChar2]);
-        player2.setName("Gracz 2");
         PawnChar2.setVisible(true);
+        PlayerNameText2.setText(name2);
 
         if (playersAmount > 2) {
-            player3 = new Player(selectedChar3 + 1, Character.Color.DEEPSKYBLUE, false, 0);
+            player3 = new Player(selectedChar3 + 1, Character.Color.DEEPSKYBLUE, false, 0, name3);
             PawnChar3.setVisible(true);
+            PlayerNameText3.setText(name3);
         }
         else {
-            player3 = new Player(1, Character.Color.DEEPSKYBLUE, true, -1);
+            player3 = new Player(1, Character.Color.DEEPSKYBLUE, true, -1, name3);
             Player3.setVisible(false);
         }
         setCharacterImageView(2, selectedChar3);
         player3.setImage(playerThree[selectedChar3]);
-        player3.setName("Gracz 3");
 
 
         if (playersAmount > 3) {
-            player4 = new Player(selectedChar4 + 1, Character.Color.RED, false, 0);
+            player4 = new Player(selectedChar4 + 1, Character.Color.RED, false, 0, name4);
             PawnChar4.setVisible(true);
+            PlayerNameText4.setText(name4);
         }
         else {
-            player4 = new Player(1, Character.Color.RED, true, -1);
+            player4 = new Player(1, Character.Color.RED, true, -1, name4);
             Player4.setVisible(false);
         }
         setCharacterImageView(3, selectedChar4);
         player4.setImage(playerFour[selectedChar4]);
-        player4.setName("Gracz 4");
         playerTurn = player1;
+
+
+    }
+
+    public void setPlayersInitPos() {
+        Random random = new Random();
+        int pos1 = random.nextInt(4);
+
+        if (playersAmount == 2) {
+            int pos2 = pos1 + 2;
+            if (pos2 >= 4)
+                pos2 -= 4;
+
+            pos1 = pos1 * 6 + 3;
+            pos2 = pos2 * 6 + 3;
+
+            playerMovement(pos1, player1);
+            playerMovement(pos2, player2);
+        }
+        else {
+            int pos2 = random.nextInt(4);
+            while (pos2 == pos1)
+                pos2 = random.nextInt(4);
+
+            int pos3 = random.nextInt(4);
+            while (pos3 == pos1 || pos3 == pos2)
+                pos3 = random.nextInt(4);
+
+            if (playersAmount == 4)
+            {
+                int pos4 = 6 - pos1 - pos2 - pos3;
+                pos4 = pos4 * 6 + 3;
+
+                playerMovement(pos4, player4);
+            }
+
+            pos1 = pos1 * 6 + 3;
+            pos2 = pos2 * 6 + 3;
+            pos3 = pos3 * 6 + 3;
+
+            playerMovement(pos1, player1);
+            playerMovement(pos2, player2);
+            playerMovement(pos3, player3);
+        }
     }
 
     public void displayStats() {
@@ -270,6 +365,14 @@ public class Board {
     private Pane Player3;
     @FXML
     private Pane Player4;
+    @FXML
+    private Text PlayerNameText1;
+    @FXML
+    private Text PlayerNameText2;
+    @FXML
+    private Text PlayerNameText3;
+    @FXML
+    private Text PlayerNameText4;
 
     boolean isGameOver = false;
     private boolean isDicePressed = false;

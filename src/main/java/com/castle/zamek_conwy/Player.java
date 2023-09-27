@@ -13,23 +13,13 @@ public class Player extends Character {
 
     private int trophies;
 
-    public Player(int characterType, Color color, boolean isDead, int position) {
+    public Player(int characterType, Color color, boolean isDead, int position, String name) {
         super(characterType, color);
         this.isDead = isDead;
         this.character = this;
         this.inventory = new Inventory();
-        if (color.getColor() == 0) {
-            this.position = 3;
-        }
-        else if (color.getColor() == 1) {
-            this.position = 9;
-        }
-        else if (color.getColor() == 2) {
-            this.position = 15;
-        }
-        else {
-            position = 21;
-        }
+        this.position = position;
+        this.name = name;
     }
 
     public void addBonusAttackOfTrophies() {

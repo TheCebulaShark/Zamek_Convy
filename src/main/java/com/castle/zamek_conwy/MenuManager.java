@@ -14,7 +14,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
-import javafx.scene.input.KeyEvent;
 
 public class MenuManager {
     @FXML
@@ -57,7 +56,8 @@ public class MenuManager {
         Parent root = loader.load();
         Board board = loader.getController();
         board.getAmountOfPlayers(playersAmount);
-        board.setSelectedChars(selectedChar1, selectedChar2, selectedChar3, selectedChar4);
+        board.getSelectedChars(selectedChar1, selectedChar2, selectedChar3, selectedChar4);
+        board.getPlayersNames(PlayerName1.getText(), PlayerName2.getText(), PlayerName3.getText(), PlayerName4.getText());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
