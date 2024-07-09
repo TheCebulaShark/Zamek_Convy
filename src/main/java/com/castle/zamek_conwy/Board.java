@@ -1007,13 +1007,8 @@ public class Board {
         {
             turnsSinceShopClosed++;
             if (turnsSinceShopClosed > TURNS_TO_REOPEN_SHOP) {
-                Item item = new Item();
-                item.generateItem();
-                shop.setItem1(item);
-                item.generateItem();
-                shop.setItem2(item);
-                item.generateItem();
-                shop.setItem3(item);
+                shop = new Shop();
+                shopInit();
                 isShopOpen = true;
             }
         }
